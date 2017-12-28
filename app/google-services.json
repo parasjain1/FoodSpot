@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "554877514339",
+    "firebase_url": "https://foodspot-f27dd.firebaseio.com",
+    "project_id": "foodspot-f27dd",
+    "storage_bucket": "foodspot-f27dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554877514339:android:f702a6f059f0971d",
+        "android_client_info": {
+          "package_name": "com.starks.foodspots"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554877514339-j2v3rumgp2ehv7ea21toelf0djqc4vm6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD87c_cj8xRVaDHfRVH508uqnFk01SU6e4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
