@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.LinearLayoutCompat
-xmlns:android="http://schemas.android.com/apk/res/android"
-android:id="@+id/recyclerView"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/recyclerView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:paddingTop="300dp"
     android:paddingLeft="15dp"
-    android:paddingRight="15dp">
+    android:paddingRight="15dp"
+    android:orientation="vertical">
 
-<TextView
-android:id="@+id/text_view_id"
-android:layout_height="500dp"
-android:layout_width="match_parent"
-android:text="happy new year, may all your dreams come true and you have a wonderfull,prosperous year"/>
+    <TextView
+        android:id="@+id/text_view_id"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="happy new year, may all your dreams come true and you have a wonderfull,prosperous year"/>
+
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="100dp"
+        />
+
+
 </android.support.v7.widget.LinearLayoutCompat>
