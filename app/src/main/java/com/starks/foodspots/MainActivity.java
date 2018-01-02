@@ -1,5 +1,7 @@
 package com.starks.foodspots;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,13 +12,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private MaterialViewPager mViewPager;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,5 +133,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
 }

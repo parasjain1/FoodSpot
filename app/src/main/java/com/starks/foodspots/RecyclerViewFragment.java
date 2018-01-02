@@ -64,7 +64,7 @@ public class RecyclerViewFragment extends Fragment {
             @Override
             public void onClick(View arg0) {
 
-                Intent loginIntent = new Intent(getActivity(), LoginActivity.class);
+                Intent loginIntent = new Intent(getActivity(), SignupActivity.class);
                 startActivity(loginIntent);
 
             }

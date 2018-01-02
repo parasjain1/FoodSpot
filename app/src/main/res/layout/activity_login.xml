@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--tools:context="com.starks.foodspots.LoginActivity">-->
+
+<!--</android.support.constraint.ConstraintLayout>-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
+    android:background="@color/blue"
+    android:fillViewport="false"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Continue As Guest"
+            android:id="@+id/skip"
+            android:layout_gravity="right"
+            android:textColor="#ee7be5"
+            android:textSize="14sp"
+            android:clickable="true"
+            android:enabled="true"
+            android:focusable="true" />
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:text="FOODSPOTS"
+            android:textColor="@color/common_action_bar_splitter"
+            android:textSize="30sp"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:src="@color/semi_transparent"
+            />
+
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="275dp"
+            android:layout_height="45dp"
+            android:textColor="#333"
+            android:hint="Email"
+            android:padding="10dp"
+            android:layout_marginTop="80dp"
+            android:textColorHint="#666"
+            android:textSize="15sp"
+            android:elevation="5dp"
+            android:inputType="textEmailAddress"
+            android:background="@color/common_action_bar_splitter"
+            android:layout_gravity="center"/>
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="275dp"
+            android:layout_height="45dp"
+            android:padding="7dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#333"
+            android:hint="Password"
+            android:textColorHint="#666"
+            android:textSize="15sp"
+            android:inputType="textPassword"
+            android:background="@color/common_action_bar_splitter"
+            android:layout_gravity="center"/>
+
+
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/loginButton"
+            android:layout_width="275dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="6dp"
+            android:layout_gravity="center_horizontal"
+            android:padding="12dp"
+            android:text="SIGN IN"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:elevation="5dp"
+            android:background="#F50057"
+            />
+
+        <TextView
+            android:id="@+id/forgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Forgot Password?"
+            android:textAlignment="center"
+            android:textColor="#ee7be5"
+            android:elevation="7dp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            />
+
+
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="280dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:elevation="5dp"
+            />
+
+        <TextView
+            android:id="@+id/registerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+
+            android:text="New to 9ightout? Sign up."
+            android:textAlignment="center"
+            android:textColor="#ee7be5"
+            android:elevation="5dp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            />
+
+
+    </LinearLayout>
+</ScrollView>
