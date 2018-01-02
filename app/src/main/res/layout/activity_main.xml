@@ -29,9 +29,6 @@
         tools:layout_editor_absoluteX="8dp">
 
 
-
-
-
     </com.github.florent37.materialviewpager.MaterialViewPager>
 
     <android.support.design.widget.FloatingActionButton
