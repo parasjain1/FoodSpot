@@ -12,18 +12,19 @@
     android:layout_height="fill_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:fitsSystemWindows="true"
-    android:background="@color/blue"
+    android:background="#EEEEEE"
     android:fillViewport="false"
     >
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:paddingTop="15dp"
         android:paddingLeft="24dp"
         android:paddingRight="24dp"
         android:layout_alignParentBottom="true"
+        android:background="@drawable/back"
         android:layout_alignParentTop="true"
         android:weightSum="1">
 
@@ -40,15 +41,14 @@
             android:enabled="true"
             android:focusable="true" />
 
-        <TextView
+        <ImageView
             android:layout_marginTop="20dp"
-            android:text="FOODSPOTS"
-            android:textColor="@color/common_action_bar_splitter"
-            android:textSize="30sp"
-            android:layout_width="180dp"
-            android:layout_height="50dp"
+            android:src="@drawable/applogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FAFAFA"
             android:layout_gravity="center"
-            android:src="@color/semi_transparent"
+
             />
 
 
@@ -56,16 +56,16 @@
             android:id="@+id/email"
             android:layout_width="275dp"
             android:layout_height="45dp"
-            android:textColor="#333"
-            android:hint="Email"
-            android:padding="10dp"
+            android:layout_gravity="center"
             android:layout_marginTop="80dp"
-            android:textColorHint="#666"
-            android:textSize="15sp"
+            android:background="#FAFAFA"
             android:elevation="5dp"
+            android:hint="Email"
             android:inputType="textEmailAddress"
-            android:background="@color/common_action_bar_splitter"
-            android:layout_gravity="center"/>
+            android:padding="10dp"
+            android:textColor="#333"
+            android:textColorHint="#666"
+            android:textSize="15sp" />
 
         <EditText
             android:id="@+id/password"
@@ -78,7 +78,7 @@
             android:textColorHint="#666"
             android:textSize="15sp"
             android:inputType="textPassword"
-            android:background="@color/common_action_bar_splitter"
+            android:background="#FAFAFA"
             android:layout_gravity="center"/>
 
 
@@ -105,7 +105,7 @@
             android:layout_marginTop="6dp"
             android:text="Forgot Password?"
             android:textAlignment="center"
-            android:textColor="#ee7be5"
+            android:textColor="#424242"
             android:elevation="7dp"
             android:layout_gravity="center"
             android:textStyle="bold"
@@ -131,9 +131,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
 
-            android:text="New to 9ightout? Sign up."
+            android:text="New to foodspots? Sign up."
             android:textAlignment="center"
-            android:textColor="#ee7be5"
+            android:textColor="#424242"
             android:elevation="5dp"
             android:layout_gravity="center"
             android:textStyle="bold"
