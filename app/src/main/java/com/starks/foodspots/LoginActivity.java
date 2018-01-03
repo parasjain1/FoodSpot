@@ -2,8 +2,13 @@ package com.starks.foodspots;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.widget.Toast;
 
-public class LoginActivity extends Activity {
+import com.starks.foodspots.apiservices.responses.LoginResponse;
+import com.starks.foodspots.interfaces.LoginViewAction;
+import com.starks.foodspots.utils.PrefManager;
+
+public class LoginActivity extends Activity implements LoginViewAction{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -11,4 +16,33 @@ public class LoginActivity extends Activity {
         setContentView(R.layout.activity_login);
     }
 
+    @Override
+    public void displayMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showLoader() {
+
+    }
+
+    @Override
+    public void hideLoader() {
+
+    }
+
+    @Override
+    public void showNetworkTimeoutError() {
+        displayMessage("Network Error: Request Timed out.");
+    }
+
+    @Override
+    public void showNoNetworkException() {
+        displayMessage("Network Error: No Internet access.");
+    }
+
+    @Override
+    public void onLogin(LoginResponse loginResponse) {
+        new PrefManager(this).putToken(loginResponse.getToken());
+    }
 }
