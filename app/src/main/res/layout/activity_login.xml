@@ -12,7 +12,7 @@
     android:layout_height="fill_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:fitsSystemWindows="true"
-    android:background="#EEEEEE"
+    android:background="@drawable/background"
     android:fillViewport="false"
     >
 
@@ -24,7 +24,7 @@
         android:paddingLeft="24dp"
         android:paddingRight="24dp"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/back"
+
         android:layout_alignParentTop="true"
         android:weightSum="1">
 
@@ -43,10 +43,9 @@
 
         <ImageView
             android:layout_marginTop="20dp"
-            android:src="@drawable/applogo"
+            android:src="@drawable/logoapp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#FAFAFA"
             android:layout_gravity="center"
 
             />
@@ -98,32 +97,32 @@
             android:background="#F50057"
             />
 
-        <TextView
-            android:id="@+id/forgotPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="Forgot Password?"
-            android:textAlignment="center"
-            android:textColor="#424242"
-            android:elevation="7dp"
-            android:layout_gravity="center"
-            android:textStyle="bold"
-            android:textSize="15sp"
-            />
+        <!--<TextView-->
+            <!--android:id="@+id/forgotPassword"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="6dp"-->
+            <!--android:text="Forgot Password?"-->
+            <!--android:textAlignment="center"-->
+            <!--android:textColor="#424242"-->
+            <!--android:elevation="7dp"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textSize="15sp"-->
+            <!--/>-->
 
 
 
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/sign_in_button"
-            android:layout_width="280dp"
-            android:layout_height="55dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="7dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:elevation="5dp"
-            />
+        <!--<com.google.android.gms.common.SignInButton-->
+            <!--android:id="@+id/sign_in_button"-->
+            <!--android:layout_width="280dp"-->
+            <!--android:layout_height="55dp"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:layout_marginTop="7dp"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:layout_marginRight="5dp"-->
+            <!--android:elevation="5dp"-->
+            <!--/>-->
 
         <TextView
             android:id="@+id/registerButton"
