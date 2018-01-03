@@ -52,7 +52,7 @@ public class SignupActivity extends AppCompatActivity implements SignupViewActio
 
     void initViews(){
         loginButton = (TextView) findViewById(R.id.btnLinkLogin);
-        nameEditText=(EditText) findViewById(R.id.);
+        nameEditText=(EditText) findViewById(R.id.signupInputName);
         emailEditText=(EditText) findViewById(R.id.signupInputEmail);
         passwordEditText=(EditText) findViewById(R.id.signupInputPassword);
         ageEditText=(EditText) findViewById(R.id.signupInputAge);
@@ -80,31 +80,6 @@ public class SignupActivity extends AppCompatActivity implements SignupViewActio
         });
     }
 
-
-    @Override
-    public void displayMessage(String message) {
-
-    }
-
-    @Override
-    public void showLoader() {
-
-    }
-
-    @Override
-    public void hideLoader() {
-
-    }
-
-    @Override
-    public void showNetworkTimeoutError() {
-        displayMessage("Network Error: Request Timed out.");
-    }
-
-    @Override
-    public void showNoNetworkException() {
-        displayMessage("Network Error: No Internet access.");
-    }
 
 
     @Override
