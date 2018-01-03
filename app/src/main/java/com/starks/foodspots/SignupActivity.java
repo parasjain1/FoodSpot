@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.squareup.picasso.Downloader;
+import com.starks.foodspots.interfaces.SignupViewAction;
+import com.starks.foodspots.models.User;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,7 +24,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SignupActivity extends AppCompatActivity {
+public class SignupActivity extends AppCompatActivity implements SignupViewAction {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,4 +35,33 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void displayMessage(String message) {
+
+    }
+
+    @Override
+    public void showLoader() {
+
+    }
+
+    @Override
+    public void hideLoader() {
+
+    }
+
+    @Override
+    public void showNetworkTimeoutError() {
+
+    }
+
+    @Override
+    public void showNoNetworkException() {
+
+    }
+
+    @Override
+    public void onSignup(User user) {
+
+    }
 }
