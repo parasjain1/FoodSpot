@@ -22,7 +22,7 @@
             android:name=".MyServices"
             android:exported="false" />
 
-        <activity android:name=".SpalshActivity"
+        <activity android:name=".SplashActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
