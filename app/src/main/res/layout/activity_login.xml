@@ -12,7 +12,7 @@
     android:layout_height="fill_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:fitsSystemWindows="true"
-    android:background="@drawable/background"
+    android:background="@drawable/backk"
     android:fillViewport="false"
     >
 
