@@ -5,6 +5,7 @@ package com.starks.foodspots.models;
  */
 
 public class User extends BaseModel {
+    String name;
     String username;
     String email;
     Float credits;
