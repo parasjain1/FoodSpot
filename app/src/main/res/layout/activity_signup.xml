@@ -28,28 +28,28 @@
 
             />
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/signup_input_layout_name"
+            android:id="@+id/signupInputLayoutName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp">
             <EditText
-                android:id="@+id/signup_input_name"
+                android:id="@+id/signupInputName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Name"/>
         </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/signup_input_layout_email"
+            android:id="@+id/signupInputLayoutEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp">
             <EditText
-                android:id="@+id/signup_input_email"
+                android:id="@+id/signupInputEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -57,14 +57,14 @@
                 android:hint="Email" />
         </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/signup_input_layout_password"
+            android:id="@+id/signupInputLayoutPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp">
             <EditText
-                android:id="@+id/signup_input_password"
+                android:id="@+id/signupInputPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -72,14 +72,14 @@
                 android:hint="@string/hint_password" />
         </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/signup_input_layout_age"
+            android:id="@+id/signupInputLayoutAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp">
             <EditText
-                android:id="@+id/signup_input_age"
+                android:id="@+id/signupInputAge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -91,7 +91,7 @@
             android:paddingTop="20dp"
             android:layout_weight="13.19">
             <TextView
-                android:id="@+id/gender_textview"
+                android:id="@+id/genderTextview"
                 android:paddingRight="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -100,27 +100,27 @@
                 android:textSize="20dp"
                 android:fontFamily="@string/hint_password"/>
             <RadioGroup
-                android:id="@+id/gender_radio_group"
+                android:id="@+id/genderRadioGroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/gender_textview"
                 android:orientation="horizontal">
                 <RadioButton
-                    android:id="@+id/male_radio_btn"
+                    android:id="@+id/maleRadioBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/male"
                     android:checked="true"
                     />
                 <RadioButton
-                    android:id="@+id/female_radio_btn"
+                    android:id="@+id/femaleRadioBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text = "@string/female"
                     />
             </RadioGroup>
         </RelativeLayout>
-        <Button android:id="@+id/btn_signup"
+        <Button android:id="@+id/btnSignup"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/btn_sign_up"
@@ -128,10 +128,11 @@
             android:layout_marginTop="40dp"
             android:textColor="@android:color/white"/>
         <TextView
-            android:id="@+id/btn_link_login"
+            android:id="@+id/btnLinkLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Already a user? Login!"
+            android:onClick=""
             android:textColor="@color/colorPrimaryDark"
             android:background="@null"
             android:layout_marginTop="10dp"
