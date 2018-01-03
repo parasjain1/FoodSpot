@@ -1,5 +1,6 @@
 package com.starks.foodspots;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.app.Activity;
 import android.widget.Toast;
@@ -7,6 +8,8 @@ import android.widget.Toast;
 import com.starks.foodspots.apiservices.responses.LoginResponse;
 import com.starks.foodspots.interfaces.LoginViewAction;
 import com.starks.foodspots.utils.PrefManager;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class LoginActivity extends Activity implements LoginViewAction{
 
@@ -29,6 +32,10 @@ public class LoginActivity extends Activity implements LoginViewAction{
     @Override
     public void hideLoader() {
 
+    }
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
     @Override

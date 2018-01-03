@@ -1,9 +1,12 @@
 package com.starks.foodspots;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Bundle;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class SplashActivity extends Activity {
     private static int  SPLASH_TIME_OUT=3000;
@@ -22,4 +25,8 @@ public class SplashActivity extends Activity {
             }
         },SPLASH_TIME_OUT);
     }
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+
 }
