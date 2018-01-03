@@ -86,4 +86,29 @@ public class SignupActivity extends AppCompatActivity implements SignupViewActio
     public void onSignup(User user) {
 
     }
+
+    @Override
+    public void displayMessage(String message) {
+
+    }
+
+    @Override
+    public void showLoader() {
+
+    }
+
+    @Override
+    public void hideLoader() {
+
+    }
+
+    @Override
+    public void showNetworkTimeoutError() {
+
+    }
+
+    @Override
+    public void showNoNetworkException() {
+
+    }
 }
