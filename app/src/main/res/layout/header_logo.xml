@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:floatingSearch_searchBarMarginLeft="20dp"
-        app:floatingSearch_searchBarMarginTop="20dp"
+        app:floatingSearch_searchBarMarginTop="100dp"
         app:floatingSearch_searchBarMarginRight="20dp"
         app:floatingSearch_searchHint="Search..."
         app:floatingSearch_suggestionsListAnimDuration="250"
