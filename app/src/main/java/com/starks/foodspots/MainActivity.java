@@ -2,7 +2,10 @@ package com.starks.foodspots;
 
 import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -13,15 +16,31 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.arlib.floatingsearchview.FloatingSearchView;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.starks.foodspots.interfaces.FoodSpotViewAction;
+import com.starks.foodspots.models.FoodSpot;
+import com.starks.foodspots.presenters.FoodSpotsPresenter;
 import com.starks.foodspots.services.LocationService;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity implements
+        FoodSpotViewAction,
+        GoogleApiClient.ConnectionCallbacks,
+        GoogleApiClient.OnConnectionFailedListener,
+        com.google.android.gms.location.LocationListener{
 
     private MaterialViewPager mViewPager;
+    private FloatingSearchView searchView;
+    private FoodSpotsPresenter foodSpotsPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         mViewPager = (MaterialViewPager) findViewById(R.id.materialViewPager);
+        searchView = (FloatingSearchView) findViewById(R.id.floating_search_view);
+        setSearchView();
 
         mViewPager.getViewPager().setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
 
@@ -61,20 +82,18 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public int getCount() {
-                return 4;
+                return 3;
             }
 
             @Override
             public CharSequence getPageTitle(int position) {
-                switch (position % 4) {
+                switch (position % 3) {
                     case 0:
-                        return "Selection";
+                        return "Nearby";
                     case 1:
-                        return "Actualités";
+                        return "Your Wandoofs";
                     case 2:
-                        return "Professionnel";
-                    case 3:
-                        return "Divertissement";
+                        return "Profile";
                 }
                 return "";
             }
@@ -97,10 +116,6 @@ public class MainActivity extends AppCompatActivity {
                         return HeaderDesign.fromColorResAndUrl(
                                 R.color.cyan,
                                 "http://www.droid-life.com/wp-content/uploads/2014/10/lollipop-wallpapers10.jpg");
-                    case 3:
-                        return HeaderDesign.fromColorResAndUrl(
-                                R.color.red,
-                                "http://www.tothemobile.com/wp-content/uploads/2014/07/original.jpg");
                 }
 
                 //execute others actions if needed (ex : modify your header logo)
@@ -139,4 +154,42 @@ public class MainActivity extends AppCompatActivity {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
+    private void setSearchView(){
+        searchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
+            @Override
+            public void onSearchTextChanged(String oldQuery, final String newQuery) {
+
+                //get suggestions based on newQuery
+                Map<String, String> map = new HashMap<String, String>();
+                map.put("keyword", newQuery);
+                foodSpotsPresenter.getFoodSpots(map);
+
+            }
+        });
+    }
+
+    @Override
+    public void onFoodSpotsReceived(ArrayList<FoodSpot> foodSpots) {
+
+    }
+
+    @Override
+    public void onConnected(@Nullable Bundle bundle) {
+
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+
+    }
 }
