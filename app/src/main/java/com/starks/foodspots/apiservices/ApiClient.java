@@ -33,7 +33,7 @@ public class ApiClient {
         if (retrofit == null) {
 
             String token = MyApplication.getInstance().prefManager.getToken();
-            final String authHeader = (token.equals("")) ? "Authorize: Anon" : "token " + token;
+            final String authHeader = (token.equals("")) ? Constants.ANONYMOUS_AUTH_HEADER : "token " + token;
 
               OkHttpClient defaultHttpClient = new OkHttpClient.Builder()
                         .addInterceptor(

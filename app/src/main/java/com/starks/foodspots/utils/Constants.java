@@ -7,5 +7,6 @@ package com.starks.foodspots.utils;
 public class Constants {
 
     public static final String ip = "https://pacific-headland-23354.herokuapp.com/";
+    public static final String ANONYMOUS_AUTH_HEADER = "Authorize: Anon";
 
 }
