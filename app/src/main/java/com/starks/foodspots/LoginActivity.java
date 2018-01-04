@@ -67,7 +67,6 @@ public class LoginActivity extends BaseActivity implements LoginViewAction {
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), SignupActivity.class);
                 startActivity(i);
-                setContentView(R.layout.activity_signup);
             }
         });
     }
