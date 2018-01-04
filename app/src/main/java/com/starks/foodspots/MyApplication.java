@@ -13,6 +13,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 public class MyApplication extends Application {
 
     private static MyApplication mInstance;
+    public PrefManager prefManager;
 
     @Override
     public void onCreate() {
@@ -23,14 +24,13 @@ public class MyApplication extends Application {
                 .build());
 
         mInstance = this;
+
+        prefManager = new PrefManager(this);
+
     }
 
     public static synchronized MyApplication getInstance() {
         return mInstance;
-    }
-
-    public static String getAuthToken(){
-        return new PrefManager(getInstance().getApplicationContext()).getToken();
     }
 
 }

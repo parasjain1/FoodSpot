@@ -29,8 +29,12 @@ public class ApiClient {
     private static Retrofit retrofit = null;
 
 
-    public static Retrofit getClient() {
+    public static Retrofit getClient(final String header) {
         if (retrofit == null) {
+
+            String token = MyApplication.getInstance().prefManager.getToken();
+            final String authHeader = (token.equals("")) ? "Authorize: Anon" : "token " + token;
+
               OkHttpClient defaultHttpClient = new OkHttpClient.Builder()
                         .addInterceptor(
                                 new Interceptor() {
@@ -38,7 +42,7 @@ public class ApiClient {
                                     public Response intercept(Interceptor.Chain chain) throws IOException {
                                         Request request = chain.request().newBuilder()
                                                 .addHeader("Accept", "application/JSON")
-                                                .addHeader("Authorization", MyApplication.getAuthToken())
+                                                .addHeader("Authorization", authHeader)
                                                 .build();
                                         return chain.proceed(request);
                                     }

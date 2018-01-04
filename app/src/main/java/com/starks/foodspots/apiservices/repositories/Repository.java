@@ -1,7 +1,9 @@
 package com.starks.foodspots.apiservices.repositories;
 
+import android.content.Context;
 import android.util.Log;
 
+import com.starks.foodspots.MyApplication;
 import com.starks.foodspots.apiservices.APIEndpoint;
 import com.starks.foodspots.apiservices.ApiClient;
 import com.starks.foodspots.apiservices.responses.LoginResponse;
@@ -23,8 +25,16 @@ import retrofit2.Callback;
 
 public class Repository {
 
-    APIEndpoint apiService = ApiClient.getClient().create(APIEndpoint.class);
-    static final String TAG = "AuthRespository";
+    private static final String TAG = Repository.class.getSimpleName();
+    String header;
+
+
+    public Repository(){
+        Log.d(TAG, "Header: " + header);
+//        this.header = application.prefManager.getToken();
+    }
+
+    APIEndpoint apiService = ApiClient.getClient(header).create(APIEndpoint.class);
 
     public void signUp(Map<String, String> map, Callback callback){
         Log.d(TAG, "Signup: " + map.toString());
@@ -101,6 +111,11 @@ public class Repository {
     public void deleteComment(String voteId, Callback callback){
         Log.d(TAG, "DeleteComment: " + voteId );
         apiService.deleteVote(voteId).enqueue(callback);
+    }
+
+    public void getFoodSpotsForTravel(Map<String, String> map, Callback callback){
+        Log.d(TAG, "FoodSpotsForTravel: " + map.toString());
+        apiService.foodSpotsTravelling(map).enqueue(callback);
     }
 
     private Map<String, RequestBody> getPartMap(Map<String, String> map){
