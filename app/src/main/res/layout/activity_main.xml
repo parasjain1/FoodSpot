@@ -6,11 +6,25 @@
     android:layout_height="match_parent"
     tools:context="com.starks.foodspots.MainActivity">
 
+    <app:com.arlib.floatingsearchview.FloatingSearchView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/floating_search_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:floatingSearch_searchBarMarginLeft="20dp"
+        app:floatingSearch_searchBarMarginTop="100dp"
+        app:floatingSearch_searchBarMarginRight="20dp"
+        app:floatingSearch_searchHint="Search..."
+        app:floatingSearch_suggestionsListAnimDuration="250"
+        app:floatingSearch_showSearchKey="false"
+        app:floatingSearch_leftActionMode="showSearch"
+        app:floatingSearch_menu="@menu/menu_main"
+        app:floatingSearch_close_search_on_keyboard_dismiss="true" />
+
     <com.github.florent37.materialviewpager.MaterialViewPager
         android:id="@+id/materialViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:viewpager_logo="@layout/header_logo"
         app:viewpager_logoMarginTop="100dp"
         app:viewpager_color="@color/colorPrimary"
         app:viewpager_headerHeight="200dp"
@@ -23,8 +37,7 @@
         app:viewpager_displayToolbarWhenSwipe="true"
         app:viewpager_transparentToolbar="true"
         app:viewpager_animatedHeaderImage="true"
-        app:viewpager_disableToolbar="false"
-
+        app:viewpager_disableToolbar="true"
         tools:layout_editor_absoluteY="8dp"
         tools:layout_editor_absoluteX="8dp">
 
