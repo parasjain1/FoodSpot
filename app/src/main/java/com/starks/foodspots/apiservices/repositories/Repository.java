@@ -6,6 +6,7 @@ import android.util.Log;
 import com.starks.foodspots.MyApplication;
 import com.starks.foodspots.apiservices.APIEndpoint;
 import com.starks.foodspots.apiservices.ApiClient;
+import com.starks.foodspots.apiservices.responses.FoodSpotResponse;
 import com.starks.foodspots.apiservices.responses.LoginResponse;
 import com.starks.foodspots.models.FoodSpot;
 import com.starks.foodspots.models.User;
@@ -50,7 +51,7 @@ public class Repository {
 
     public void getFoodSpots(Map<String, String> map, Callback callback){
         Log.d(TAG, "GetFoodSpots: " + map.toString());
-        Call<ArrayList<FoodSpot>> call = apiService.getFoodSpots(map);
+        Call<FoodSpotResponse> call = apiService.getFoodSpots(map);
         call.enqueue(callback);
     }
 
