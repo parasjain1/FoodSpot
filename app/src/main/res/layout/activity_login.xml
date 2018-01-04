@@ -127,12 +127,26 @@
             <!--/>-->
 
         <TextView
-            android:id="@+id/registerButton"
+        android:id="@+id/registerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+
+        android:text="New to foodspots? Sign up."
+        android:textAlignment="center"
+        android:textColor="#424242"
+        android:elevation="5dp"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        />
+        <TextView
+            android:id="@+id/slide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
 
-            android:text="New to foodspots? Sign up."
+            android:text="slide"
             android:textAlignment="center"
             android:textColor="#424242"
             android:elevation="5dp"
