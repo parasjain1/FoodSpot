@@ -7,5 +7,5 @@ import com.starks.foodspots.models.User;
  */
 
 public interface SignupViewAction extends BaseViewAction {
-    void onSignup(User user);
+    void onSignUp(User user);
 }
