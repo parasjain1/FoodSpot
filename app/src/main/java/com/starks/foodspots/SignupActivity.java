@@ -21,6 +21,8 @@ import com.starks.foodspots.apiservices.responses.LoginResponse;
 import com.starks.foodspots.interfaces.LoginViewAction;
 import com.starks.foodspots.interfaces.SignupViewAction;
 import com.starks.foodspots.models.User;
+import com.starks.foodspots.presenters.LoginPresenter;
+import com.starks.foodspots.presenters.SignupPresenter;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,12 +33,13 @@ import java.util.Map;
 import static android.R.id.message;
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
-public class SignupActivity extends AppCompatActivity implements SignupViewAction{
+public class SignupActivity extends BaseActivity implements SignupViewAction, LoginViewAction{
 
     TextView loginButton;
     EditText nameEditText,emailEditText,passwordEditText,ageEditText;
     RadioButton maleRadio,femaleRadio;
     Button signUpButton;
+    SignupPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +47,7 @@ public class SignupActivity extends AppCompatActivity implements SignupViewActio
         setContentView(R.layout.activity_signup);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        presenter = new SignupPresenter(this);
         initViews();
 
     }
@@ -75,7 +78,11 @@ public class SignupActivity extends AppCompatActivity implements SignupViewActio
 
             @Override
             public void onClick(View v) {
-
+                if(validated()){
+                    presenter.signup(getFormData());
+                } else {
+                    displayMessage("Correct the errors!");
+                }
             }
         });
     }
@@ -83,32 +90,37 @@ public class SignupActivity extends AppCompatActivity implements SignupViewActio
 
 
     @Override
-    public void onSignup(User user) {
-
+    public void onSignUp(User user) {
+        LoginPresenter loginPresenter = new LoginPresenter(this);
+        Map<String,String> map = new HashMap<>();
+        map.put("username", emailEditText.getText().toString());
+        map.put("password", passwordEditText.getText().toString());
+        loginPresenter.login(map);
     }
 
-    @Override
-    public void displayMessage(String message) {
 
+    @Override
+    public void onLogin(LoginResponse loginResponse) {
+        MyApplication.getInstance().prefManager.putToken(loginResponse.getToken());
+        startActivity(new Intent(this, MainActivity.class));
     }
 
-    @Override
-    public void showLoader() {
+    private boolean validated(){
+        if(
+                nameEditText.getText().toString().equals("") ||
+                emailEditText.getText().toString().equals("") ||
+                passwordEditText.getText().toString().equals("")
+        ) return false;
 
+        return  true;
     }
 
-    @Override
-    public void hideLoader() {
-
-    }
-
-    @Override
-    public void showNetworkTimeoutError() {
-
-    }
-
-    @Override
-    public void showNoNetworkException() {
-
+    private Map<String, String> getFormData(){
+        Map<String,String> map = new HashMap<>();
+        map.put("fullName", nameEditText.getText().toString());
+        map.put("username", emailEditText.getText().toString());
+        map.put("password", passwordEditText.getText().toString());
+        map.put("email", emailEditText.getText().toString());
+        return map;
     }
 }

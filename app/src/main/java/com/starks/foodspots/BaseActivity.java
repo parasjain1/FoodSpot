@@ -2,6 +2,7 @@ package com.starks.foodspots;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.starks.foodspots.interfaces.BaseViewAction;
@@ -13,7 +14,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
  * Created by sharda on 04/01/18.
  */
 
-public class BaseActivity extends Activity implements BaseViewAction {
+public class BaseActivity extends AppCompatActivity implements BaseViewAction {
 
     CustomLoader progress;
 

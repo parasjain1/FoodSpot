@@ -28,9 +28,11 @@ public class LoginPresenter {
     }
 
     public void login(Map<String, String> data){
+        viewAction.showLoader();
         repository.login(data, new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
+                viewAction.hideLoader();
                 Log.d(TAG, response.code() + " " + response.message());
                 LoginResponse loginResponse = (LoginResponse) response.body();
                 if(response.code() == 200)
@@ -41,6 +43,7 @@ public class LoginPresenter {
 
             @Override
             public void onFailure(Call call, Throwable t) {
+                viewAction.hideLoader();
                 Log.d(TAG, t.getMessage());
                 viewAction.displayMessage("Some problem occurred when trying to login!");
             }

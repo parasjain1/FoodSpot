@@ -10,4 +10,29 @@ public class User extends BaseModel {
     String email;
     Float credits;
     Integer numFoodSpots;
+    String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Float getCredits() {
+        return credits;
+    }
+
+    public Integer getNumFoodSpots() {
+        return numFoodSpots;
+    }
 }
