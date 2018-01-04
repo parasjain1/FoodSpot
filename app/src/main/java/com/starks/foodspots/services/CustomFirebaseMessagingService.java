@@ -95,7 +95,7 @@ public class CustomFirebaseMessagingService extends FirebaseMessagingService {
             notificationBuilder = new NotificationCompat.Builder(this)
                     .setContentTitle(title)
                     .setContentText(messageBody)
-                    .setSmallIcon(R.drawable.logoapp)
+                    .setSmallIcon(R.drawable.logo)
                     .setStyle(new NotificationCompat.BigPictureStyle()
                             .bigPicture(image))/*Notification with Image*/
                     .setAutoCancel(true)
@@ -110,7 +110,7 @@ public class CustomFirebaseMessagingService extends FirebaseMessagingService {
             notificationBuilder = new NotificationCompat.Builder(this)
                     .setContentTitle(title)
                     .setContentText(messageBody)
-                    .setSmallIcon(R.drawable.logoapp)
+                    .setSmallIcon(R.drawable.logo)
                     .setAutoCancel(true)
                     .setSound(defaultSoundUri)
                     .setContentIntent(pendingIntent);
