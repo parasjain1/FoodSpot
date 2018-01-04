@@ -63,7 +63,8 @@ public class MainActivity extends BaseActivity implements
         mViewPager = (MaterialViewPager) findViewById(R.id.materialViewPager);
         searchView = (FloatingSearchView) findViewById(R.id.floating_search_view);
         setSearchView();
-
+        mViewPager.getPagerTitleStrip().setTabBackground(R.color.white_it);
+        mViewPager.getPagerTitleStrip().setTextColor(R.color.material_viewpager_tab);
         mViewPager.getViewPager().setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
 
             @Override
@@ -105,16 +106,16 @@ public class MainActivity extends BaseActivity implements
             public HeaderDesign getHeaderDesign(int page) {
                 switch (page) {
                     case 0:
-                        return HeaderDesign.fromColorResAndUrl(
-                                R.color.green,
-                                "http://phandroid.s3.amazonaws.com/wp-content/uploads/2014/06/android_google_moutain_google_now_1920x1080_wallpaper_Wallpaper-HD_2560x1600_www.paperhi.com_-640x400.jpg");
+                        return HeaderDesign.fromColorResAndDrawable(
+                                R.color.header_color,
+                                getResources().getDrawable(R.drawable.homepage_header1));
                     case 1:
                         return HeaderDesign.fromColorResAndUrl(
-                                R.color.blue,
+                                R.color.header_color,
                                 "http://www.hdiphonewallpapers.us/phone-wallpapers/540x960-1/540x960-mobile-wallpapers-hd-2218x5ox3.jpg");
                     case 2:
                         return HeaderDesign.fromColorResAndUrl(
-                                R.color.cyan,
+                                R.color.header_color,
                                 "http://www.droid-life.com/wp-content/uploads/2014/10/lollipop-wallpapers10.jpg");
                 }
 
