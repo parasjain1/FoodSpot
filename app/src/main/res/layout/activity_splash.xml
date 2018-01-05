@@ -4,17 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backk"
+
     tools:context="com.starks.foodspots.SplashActivity">\
     <ImageView
         android:id="@+id/imgLogo"
         android:src="@drawable/logo"
-        android:layout_width="wrap_content"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="220dp"
-        android:background="#FFFF"
+        android:layout_width="150dp"
+        android:gravity="center"
         android:layout_height="100dp"
-    />
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_alignBottom="@+id/textSplash"
+        android:layout_marginBottom="210dp" />
 
     <!--<de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"-->
         <!--android:id="@+id/profile_image"-->
@@ -28,16 +29,16 @@
 
     <TextView
         android:id="@+id/textSplash"
-        android:text="Wander with Food!!"
+        android:text="@string/defined_view_stub_font_path"
         android:textSize="20dp"
         android:textStyle="italic"
         android:textColor="@color/black"
-        android:layout_marginTop="550dp"
+        android:layout_marginTop="400dp"
         android:layout_marginLeft="120dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:ignore="MissingPrefix"
-        fontPath="fonts/Pacifico.ttf"
+        fontPath="fonts/Lobster-Regular.ttf"
         />
 
 </RelativeLayout>

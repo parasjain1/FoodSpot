@@ -28,18 +28,6 @@
         android:layout_alignParentTop="true"
         android:weightSum="1">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Continue As Guest"
-            android:id="@+id/skip"
-            android:layout_gravity="right"
-            android:textColor="#ee7be5"
-            android:textSize="14sp"
-            android:clickable="true"
-            android:enabled="true"
-            android:focusable="true" />
 
         <ImageView
             android:layout_marginTop="20dp"
@@ -137,8 +125,8 @@
         android:textColor="#424242"
         android:elevation="5dp"
         android:layout_gravity="center"
-        android:textStyle="bold"
-        android:textSize="15sp"
+        android:textStyle="normal"
+        android:textSize="13sp"
         />
         <TextView
             android:id="@+id/slide"

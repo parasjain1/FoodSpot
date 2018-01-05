@@ -8,7 +8,7 @@ import android.os.Bundle;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class SplashActivity extends Activity {
+public class SplashActivity extends BaseActivity {
     private static int  SPLASH_TIME_OUT=3000;
     private static String TAG = SplashActivity.class.getSimpleName();
     @Override

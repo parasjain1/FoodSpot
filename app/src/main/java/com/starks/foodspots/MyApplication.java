@@ -19,7 +19,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/Montserrat-Light.ttf")
+                .setDefaultFontPath("fonts/MerriweatherSans-Bold.ttf")
                 .setFontAttrId(R.attr.fontPath)
                 .build());
 
