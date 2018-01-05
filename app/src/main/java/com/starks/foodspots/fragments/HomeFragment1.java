@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
 import com.starks.foodspots.FoodSpotSuggestion;
 import com.starks.foodspots.R;
 import com.starks.foodspots.adapters.FoodSpotsListAdapter;
@@ -47,9 +48,16 @@ public class HomeFragment1 extends Fragment {
         final ArrayList<FoodSpot> allFoodSpots = new ArrayList<>();
         foodSpotsListAdapter = new FoodSpotsListAdapter(getContext(), allFoodSpots);
         recyclerView
-                .setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+                .setLayoutManager(new LinearLayoutManager(getActivity()));
 
         recyclerView.setHasFixedSize(true);
+        //setup materialviewpager
+
+
+
+
+        //Use this now
+        recyclerView.addItemDecoration(new MaterialViewPagerHeaderDecorator());
         recyclerView.setAdapter(foodSpotsListAdapter);
 
         FoodSpotsPresenter foodSpotsPresenter = new FoodSpotsPresenter(new OnFoodSpotsReceiveListener() {
@@ -96,6 +104,7 @@ public class HomeFragment1 extends Fragment {
         map.put("lng", "12");
         map.put("maxDistance", "999999");
         foodSpotsPresenter.getFoodSpots(map);
+
     }
 
 }

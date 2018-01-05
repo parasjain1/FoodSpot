@@ -14,6 +14,7 @@ import com.starks.foodspots.interfaces.GetUsersListener;
 import com.starks.foodspots.models.FoodSpot;
 import com.starks.foodspots.models.User;
 import com.starks.foodspots.presenters.GetUsersPresenter;
+import com.starks.foodspots.utils.Constants;
 import com.starks.foodspots.viewholders.FoodSpotViewHolder;
 
 import java.util.ArrayList;
@@ -81,7 +82,7 @@ public class FoodSpotsListAdapter extends RecyclerView.Adapter<FoodSpotViewHolde
 
             @Override
             public void onReceiveUser(final User user) {
-                holder.getUsername().setText(user.getName());
+                holder.getUsername().setText(user.getFullName() + " (" + user.getNumFoodSpots() + " posts)");
                 holder.getUsername().setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -100,7 +101,7 @@ public class FoodSpotsListAdapter extends RecyclerView.Adapter<FoodSpotViewHolde
                 foodSpot.getLocation().getCity() +
                 foodSpot.getLocation().getState());
         if(foodSpot.getGallery().size() != 0)
-            Picasso.with(context).load(foodSpot.getGallery().get(0).getImage()).fit().into(holder.getImageView());
+            Picasso.with(context).load(Constants.ip + foodSpot.getGallery().get(0).getImage()).fit().into(holder.getImageView());
     }
 
     @Override

@@ -5,7 +5,7 @@ package com.starks.foodspots.models;
  */
 
 public class User extends BaseModel {
-    String name;
+    String fullName;
     String username;
     String email;
     Float credits;
@@ -16,8 +16,8 @@ public class User extends BaseModel {
         return password;
     }
 
-    public String getName() {
-        return name;
+    public String getFullName() {
+        return fullName;
     }
 
     public String getUsername() {

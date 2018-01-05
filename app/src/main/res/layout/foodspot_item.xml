@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/username"
-            android:text="parasjain (22 posts)"
+            android:text=""
             android:textSize="12dp"
             android:textColor="@color/black"
             android:layout_marginBottom="5dp"/>
@@ -40,7 +40,7 @@
             android:cropToPadding="true"
             android:scaleType="centerCrop"
             android:layout_below="@id/username"
-            android:src="@drawable/homepage_header1" />
+            android:src="@drawable/logo" />
 
 
         <RelativeLayout
@@ -68,7 +68,7 @@
                     android:singleLine="true"
                     android:text="Barista"
                     android:textColor="@color/black"
-                    android:textSize="15sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <com.like.LikeButton
@@ -76,8 +76,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/name"
-                    app:icon_size="13dp"
+                    app:icon_size="11.5dp"
                     app:icon_type="heart"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="22"
+                    android:layout_marginTop="6dp"/>
 
             </LinearLayout>
 
