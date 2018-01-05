@@ -10,4 +10,5 @@
     <string name="hint_gender">Gender</string>
     <string name="btn_sign_up">SignUp</string>
     <string name="btn_link_login">Login</string>
+    <string name="defined_view_stub_font_path">Wander with food!</string>
 </resources>
