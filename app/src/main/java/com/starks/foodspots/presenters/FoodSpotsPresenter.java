@@ -4,8 +4,7 @@ import android.util.Log;
 
 import com.starks.foodspots.FoodSpotSuggestion;
 import com.starks.foodspots.apiservices.repositories.Repository;
-import com.starks.foodspots.apiservices.responses.FoodSpotResponse;
-import com.starks.foodspots.interfaces.FoodSpotSearchListener;
+import com.starks.foodspots.interfaces.OnFoodSpotsReceiveListener;
 import com.starks.foodspots.models.FoodSpot;
 
 import java.util.ArrayList;
@@ -19,13 +18,13 @@ import retrofit2.Response;
  * Created by monikapandey on 04/01/18.
  */
 
-public class FoodSpotsSearchPresenter {
+public class FoodSpotsPresenter {
 
     private Repository repository = new Repository();
-    private FoodSpotSearchListener viewAction;
-    private static final String TAG = FoodSpotsSearchPresenter.class.getSimpleName();
+    private OnFoodSpotsReceiveListener viewAction;
+    private static final String TAG = FoodSpotsPresenter.class.getSimpleName();
 
-    public FoodSpotsSearchPresenter(FoodSpotSearchListener foodSpotSearchListener){
+    public FoodSpotsPresenter(OnFoodSpotsReceiveListener foodSpotSearchListener){
         this.viewAction = foodSpotSearchListener;
     }
 
@@ -36,7 +35,7 @@ public class FoodSpotsSearchPresenter {
             public void onResponse(Call call, Response response) {
                 Log.d(TAG, response.code() + " " + response.message());
                 if(response.code() == 200){
-                    ArrayList<FoodSpot> list = ((FoodSpotResponse) response.body()).getFoodSpots();
+                    FoodSpot[] list = (FoodSpot[]) response.body();
                     ArrayList<FoodSpotSuggestion> suggestionsList = new ArrayList<>();
                     for(FoodSpot foodSpot : list){
                         suggestionsList.add(new FoodSpotSuggestion(foodSpot.getName()));
@@ -51,7 +50,35 @@ public class FoodSpotsSearchPresenter {
 
             @Override
             public void onFailure(Call call, Throwable t) {
-                Log.d(TAG, t.getMessage());
+                Log.d(TAG, t.toString());
+                viewAction.displayMessage("Some error occurred while getting foodspots!");
+            }
+
+        });
+    }
+
+    public void getFoodSpots(Map<String, String> map){
+        repository.getFoodSpots(map, new Callback() {
+
+            @Override
+            public void onResponse(Call call, Response response) {
+                Log.d(TAG, response.code() + " " + response.message());
+                if(response.code() == 200){
+                    ArrayList<FoodSpot> foodSpots = new ArrayList<>();
+                    for(FoodSpot foodSpot : (FoodSpot[]) response.body()){
+                        foodSpots.add(foodSpot);
+                    }
+                    viewAction.onReceiveFoodSpots(foodSpots);
+                }
+
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                Log.d(TAG, t.toString());
                 viewAction.displayMessage("Some error occurred while getting foodspots!");
             }
 

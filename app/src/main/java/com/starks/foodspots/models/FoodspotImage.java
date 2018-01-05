@@ -6,4 +6,8 @@ package com.starks.foodspots.models;
 
 public class FoodspotImage extends BaseModel{
     String image;
+
+    public String getImage() {
+        return image;
+    }
 }

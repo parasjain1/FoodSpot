@@ -73,6 +73,8 @@ public class LocationService extends Service implements
     public static double latitude;
     public static double longitude;
 
+    private static LocationService mInstance;
+
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -87,6 +89,9 @@ public class LocationService extends Service implements
 
     @Override
     public void onCreate() {
+
+        mInstance = this;
+
         super.onCreate();
 
 
@@ -219,6 +224,9 @@ public class LocationService extends Service implements
 
     }
 
+    public static synchronized LocationService getInstance() {
+        return mInstance;
+    }
 
 
 }

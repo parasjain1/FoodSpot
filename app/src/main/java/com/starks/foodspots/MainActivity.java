@@ -25,9 +25,10 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
-import com.starks.foodspots.interfaces.FoodSpotSearchListener;
+import com.starks.foodspots.fragments.HomeFragment1;
+import com.starks.foodspots.interfaces.OnFoodSpotsReceiveListener;
 import com.starks.foodspots.models.FoodSpot;
-import com.starks.foodspots.presenters.FoodSpotsSearchPresenter;
+import com.starks.foodspots.presenters.FoodSpotsPresenter;
 import com.starks.foodspots.services.LocationService;
 
 import java.util.ArrayList;
@@ -37,14 +38,14 @@ import java.util.Map;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class MainActivity extends BaseActivity implements
-        FoodSpotSearchListener,
+        OnFoodSpotsReceiveListener,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         com.google.android.gms.location.LocationListener{
 
     private MaterialViewPager mViewPager;
     private FloatingSearchView searchView;
-    private FoodSpotsSearchPresenter foodSpotsSearchPresenter;
+    private FoodSpotsPresenter foodSpotsPresenter;
     private static final String TAG = MainActivity.class.getSimpleName();
 
     // Location updates intervals in sec
@@ -78,7 +79,7 @@ public class MainActivity extends BaseActivity implements
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         startService(new Intent(this, LocationService.class));
-        foodSpotsSearchPresenter = new FoodSpotsSearchPresenter(this);
+        foodSpotsPresenter = new FoodSpotsPresenter(this);
         initLocationUpdates();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -101,8 +102,8 @@ public class MainActivity extends BaseActivity implements
             @Override
             public Fragment getItem(int position) {
                 switch (position % 3) {
-                    //case 0:
-                    //    return RecyclerViewFragment.newInstance();
+                    case 0:
+                        return HomeFragment1.newInstance();
                     //case 1:
                     //    return RecyclerViewFragment.newInstance();
                     //case 2:
@@ -205,7 +206,7 @@ public class MainActivity extends BaseActivity implements
                 map.put("lat", location.getLatitude() + "");
                 map.put("lng", location.getLongitude() + "");
                 map.put("maxDistance", 999999 + "");
-                foodSpotsSearchPresenter.searchFoodSpots(map);
+                foodSpotsPresenter.searchFoodSpots(map);
             }
         });
     }
@@ -284,6 +285,11 @@ public class MainActivity extends BaseActivity implements
         searchView.swapSuggestions(foodSpots);
         searchView.hideProgress();
         Log.d(TAG, "Search results updated!");
+
+    }
+
+    @Override
+    public void onReceiveFoodSpots(ArrayList<FoodSpot> foodSpots) {
 
     }
 }
