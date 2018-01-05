@@ -27,12 +27,13 @@ public class ApiClient {
     //private static final String BASE_URL = "http://192.168.0.103:9090/funcandi/";
     private static final String BASE_URL = Constants.ip +"api/";
     private static Retrofit retrofit = null;
+    private static String token = MyApplication.getInstance().prefManager.getToken();
 
 
     public static Retrofit getClient(final String header) {
-        if (retrofit == null) {
+        if (retrofit == null || token.equals("")) {
 
-            String token = MyApplication.getInstance().prefManager.getToken();
+
             final String authHeader = (token.equals("")) ? Constants.ANONYMOUS_AUTH_HEADER : "token " + token;
 
               OkHttpClient defaultHttpClient = new OkHttpClient.Builder()

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class FoodSpot extends BaseModel {
     Location location;
-    User owner;
+    Integer owner;
     ArrayList<FoodspotImage> gallery;
     ArrayList<Vote> recentLikes;
     ArrayList<Vote> recentDislikes;
@@ -26,7 +26,7 @@ public class FoodSpot extends BaseModel {
         return location;
     }
 
-    public User getOwner() {
+    public Integer getOwner() {
         return owner;
     }
 

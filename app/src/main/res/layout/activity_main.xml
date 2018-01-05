@@ -25,7 +25,8 @@
         app:viewpager_animatedHeaderImage="true"
         app:viewpager_disableToolbar="true"
         tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp">
+        tools:layout_editor_absoluteX="8dp"
+        app:tabIndicatorColor="@android:color/holo_blue_bright">
 
 
 

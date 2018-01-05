@@ -2,7 +2,6 @@ package com.starks.foodspots.apiservices;
 
 import android.util.Log;
 
-import com.starks.foodspots.apiservices.responses.FoodSpotResponse;
 import com.starks.foodspots.apiservices.responses.InfoResponse;
 import com.starks.foodspots.apiservices.responses.LoginResponse;
 import com.starks.foodspots.models.Comment;
@@ -70,7 +69,7 @@ public interface APIEndpoint {
     Call<FoodSpot> createFoodSpot(@PartMap() Map<String, RequestBody> map);
 
     @GET("foodspots")
-    Call<FoodSpotResponse> getFoodSpots(@QueryMap() Map<String, String> map);
+    Call<FoodSpot[]> getFoodSpots(@QueryMap() Map<String, String> map);
 
     @GET("foodspots/{foodSpotId}")
     Call<FoodSpot> getFoodSpot(@Path("foodSpotId") String foodSpotId);
@@ -86,7 +85,7 @@ public interface APIEndpoint {
     Call<InfoResponse> foodSpotsTravelling(@QueryMap() Map<String, String> map);
 
     @GET("users")
-    Call<ArrayList<User>> getUsers(@QueryMap() Map<String, String> map);
+    Call<User[]> getUsers(@QueryMap() Map<String, String> map);
 
     @GET("users/{userId}")
     Call<User> getUser(@Path("userId") String userId);
