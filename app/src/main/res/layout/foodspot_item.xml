@@ -9,9 +9,8 @@
     android:layout_marginRight="5dp"
     android:background="?attr/selectableItemBackground"
     android:layout_marginTop="5dp"
-    android:id="@+id/card_view1"
+    android:id="@+id/card_view"
     android:clickable="true"
-
     android:foreground="?android:attr/selectableItemBackground"
     app:cardBackgroundColor="@color/white_it"
     app:cardCornerRadius="2dp"
@@ -68,7 +67,7 @@
                     android:singleLine="true"
                     android:text="Barista"
                     android:textColor="@color/black"
-                    android:textSize="17sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <com.like.LikeButton
@@ -76,14 +75,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/name"
-                    app:icon_size="11.5dp"
+                    app:icon_size="11.8dp"
                     app:icon_type="heart"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="22"
-                    android:layout_marginTop="6dp"/>
+                    android:id="@+id/numLikes"
+                    android:layout_marginTop="4.5dp"/>
 
             </LinearLayout>
 
@@ -100,7 +100,7 @@
 
 
             <TextView
-                android:id="@+id/amt"
+                android:id="@+id/recommended"
                 fontPath="fonts/Montserrat-Regular.ttf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

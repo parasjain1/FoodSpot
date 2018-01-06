@@ -19,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.arlib.floatingsearchview.FloatingSearchView;
+import com.arlib.floatingsearchview.suggestions.model.SearchSuggestion;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
 import com.google.android.gms.common.ConnectionResult;
@@ -71,6 +72,7 @@ public class MainActivity extends BaseActivity implements
 
     public static double latitude;
     public static double longitude;
+    private static MainActivity mInstance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +83,7 @@ public class MainActivity extends BaseActivity implements
         startService(new Intent(this, LocationService.class));
         foodSpotsPresenter = new FoodSpotsPresenter(this);
         initLocationUpdates();
+        mInstance = this;
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -209,6 +212,25 @@ public class MainActivity extends BaseActivity implements
                 foodSpotsPresenter.searchFoodSpots(map);
             }
         });
+
+        searchView.setOnSearchListener(new FloatingSearchView.OnSearchListener() {
+            @Override
+            public void onSuggestionClicked(SearchSuggestion searchSuggestion) {
+                FoodSpotSuggestion foodSpotSuggestion = (FoodSpotSuggestion) searchSuggestion;
+                startSearchActivity(searchSuggestion.getBody());
+            }
+
+            @Override
+            public void onSearchAction(String currentQuery) {
+                startSearchActivity(currentQuery);
+            }
+
+            void startSearchActivity(String keyword){
+                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                intent.putExtra("keyword", keyword);
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -274,7 +296,8 @@ public class MainActivity extends BaseActivity implements
         mLocationRequest.setSmallestDisplacement(DISPLACEMENT);
     }
 
-    private Location getLocation() throws SecurityException {
+    //use this method to get Location in any other activity (MainActivity Instance shall never be killed)
+    public Location getLocation() throws SecurityException {
 
         return LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
 
@@ -291,5 +314,9 @@ public class MainActivity extends BaseActivity implements
     @Override
     public void onReceiveFoodSpots(ArrayList<FoodSpot> foodSpots) {
 
+    }
+
+    public static synchronized MainActivity getInstance() {
+        return mInstance;
     }
 }

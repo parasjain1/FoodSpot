@@ -1,6 +1,11 @@
 package com.starks.foodspots.fragments;
 
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,12 +17,15 @@ import android.view.ViewGroup;
 
 import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
 import com.starks.foodspots.FoodSpotSuggestion;
+import com.starks.foodspots.MainActivity;
 import com.starks.foodspots.R;
 import com.starks.foodspots.adapters.FoodSpotsListAdapter;
 import com.starks.foodspots.interfaces.OnFoodSpotsReceiveListener;
 import com.starks.foodspots.models.FoodSpot;
 import com.starks.foodspots.presenters.FoodSpotsPresenter;
+import com.starks.foodspots.services.LocationService;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -60,7 +68,7 @@ public class HomeFragment1 extends Fragment {
         recyclerView.addItemDecoration(new MaterialViewPagerHeaderDecorator());
         recyclerView.setAdapter(foodSpotsListAdapter);
 
-        FoodSpotsPresenter foodSpotsPresenter = new FoodSpotsPresenter(new OnFoodSpotsReceiveListener() {
+        final FoodSpotsPresenter foodSpotsPresenter = new FoodSpotsPresenter(new OnFoodSpotsReceiveListener() {
             @Override
             public void onFoodSpotSearchResult(ArrayList<FoodSpotSuggestion> foodSpots) {
 
@@ -99,11 +107,35 @@ public class HomeFragment1 extends Fragment {
             }
         });
 
-        Map<String, String> map = new HashMap<>();
-        map.put("lat", "12");
-        map.put("lng", "12");
-        map.put("maxDistance", "999999");
-        foodSpotsPresenter.getFoodSpots(map);
+
+
+        final Map<String, String> map = new HashMap<>();
+        final Handler handler = new Handler(Looper.getMainLooper());
+        final Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+
+                Location location = ((MainActivity) getActivity()).getLocation();
+                if(location == null)
+                    handler.postDelayed(this,1000);
+                else {
+                    Log.d(TAG, "lat : " + location.getLatitude());
+                    Geocoder geocoder = new Geocoder(getActivity());
+                    try {
+                        Address address = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1).get(0);
+                        Log.d(TAG, address.getLocality());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    map.put("lat", location.getLatitude() + "");
+                    map.put("lng", location.getLongitude() + "");
+                    map.put("maxDistance", "999999");
+                    foodSpotsPresenter.getFoodSpots(map);
+                }
+            }
+        };
+        handler.postDelayed(runnable,0);
+
 
     }
 

@@ -1,6 +1,7 @@
 package com.starks.foodspots.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,12 +9,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.like.LikeButton;
+import com.like.OnLikeListener;
 import com.squareup.picasso.Picasso;
+import com.starks.foodspots.FoodSpotDetailsActivity;
 import com.starks.foodspots.R;
 import com.starks.foodspots.interfaces.GetUsersListener;
+import com.starks.foodspots.interfaces.VotesViewAction;
 import com.starks.foodspots.models.FoodSpot;
 import com.starks.foodspots.models.User;
+import com.starks.foodspots.models.Vote;
 import com.starks.foodspots.presenters.GetUsersPresenter;
+import com.starks.foodspots.presenters.VotesPresenter;
 import com.starks.foodspots.utils.Constants;
 import com.starks.foodspots.viewholders.FoodSpotViewHolder;
 
@@ -48,6 +55,60 @@ public class FoodSpotsListAdapter extends RecyclerView.Adapter<FoodSpotViewHolde
         Log.d(TAG, "onBindViewHolder " + position);
         final FoodSpot foodSpot = foodSpots.get(position);
         holder.getName().setText(foodSpot.getName());
+        holder.getNumLikes().setText((foodSpot.getNumLikes()  - foodSpot.getNumDislikes())+ "");
+        holder.getLikeButton().setLiked(foodSpot.getUserLiked().size() != 0);
+        holder.getLikeButton().setOnLikeListener(new OnLikeListener() {
+            @Override
+            public void liked(LikeButton likeButton) {
+                holder.getNumLikes().setText(
+                        (Integer.parseInt(holder.getNumLikes().getText().toString()) + 1) + ""
+                );
+
+                new VotesPresenter(new VotesViewAction() {
+                    @Override
+                    public void onLiked(Vote vote) {
+                        foodSpot.getUserLiked().add(vote);
+                    }
+
+                    @Override
+                    public void onUnlike() {
+
+                    }
+                }).addLike(foodSpot.getId());
+            }
+
+            @Override
+            public void unLiked(LikeButton likeButton) {
+                if(foodSpot.getUserLiked().size() == 0)
+                    return;
+
+                holder.getNumLikes().setText(
+                        (Integer.parseInt(holder.getNumLikes().getText().toString()) - 1) + ""
+                );
+
+                new VotesPresenter(new VotesViewAction() {
+                    @Override
+                    public void onLiked(Vote vote) {
+
+                    }
+
+                    @Override
+                    public void onUnlike() {
+                        foodSpot.getUserLiked().clear();
+                    }
+                }).removeLike(foodSpot.getUserLiked().get(0).getId());
+            }
+        });
+
+        holder.getCardView().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, FoodSpotDetailsActivity.class);
+                Log.d(TAG, "ID = " + foodSpot.getId());
+                intent.putExtra("foodSpotId", foodSpot.getId());
+                context.startActivity(intent);
+            }
+        });
 
         GetUsersListener getUsersListener = new GetUsersListener() {
             @Override
@@ -101,7 +162,7 @@ public class FoodSpotsListAdapter extends RecyclerView.Adapter<FoodSpotViewHolde
                 foodSpot.getLocation().getCity() +
                 foodSpot.getLocation().getState());
         if(foodSpot.getGallery().size() != 0)
-            Picasso.with(context).load(Constants.ip + foodSpot.getGallery().get(0).getImage()).fit().into(holder.getImageView());
+            Picasso.with(context).load(Constants.ip + foodSpot.getGallery().get(0).getImage()).fit().centerCrop().into(holder.getImageView());
     }
 
     @Override

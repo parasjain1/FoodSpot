@@ -37,5 +37,9 @@
         <item name="color">@color/drawerArrowColor</item>
     </style>
 
+    <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 
 </resources>

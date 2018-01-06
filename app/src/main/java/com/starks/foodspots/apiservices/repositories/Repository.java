@@ -124,6 +124,11 @@ public class Repository {
         apiService.foodSpotsTravelling(map).enqueue(callback);
     }
 
+    public void search(Map<String, String> map, Callback callback){
+        Log.d(TAG, "Search: " + map.toString());
+        apiService.search(map).enqueue(callback);
+    }
+
     private Map<String, RequestBody> getPartMap(Map<String, String> map){
         Map<String, RequestBody> newMap = new HashMap<>();
         //create request body map for Multipart Request

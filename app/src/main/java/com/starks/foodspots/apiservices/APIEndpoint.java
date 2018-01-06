@@ -94,4 +94,7 @@ public interface APIEndpoint {
     @Multipart
     Call<User> editUser(@Path("userId") String userId, @PartMap() Map<String, RequestBody> map);
 
+    @GET("foodspots/search/")
+    Call<FoodSpot[]> search(@QueryMap Map<String, String> map);
+
 }

@@ -1,5 +1,6 @@
 package com.starks.foodspots.viewholders;
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,8 +20,11 @@ public class FoodSpotViewHolder extends RecyclerView.ViewHolder {
     TextView name;
     TextView location;
     TextView username;
+    TextView numLikes;
     ImageView imageView;
     LikeButton likeButton;
+    CardView cardView;
+
 
     public FoodSpotViewHolder(View itemView) {
         super(itemView);
@@ -29,6 +33,8 @@ public class FoodSpotViewHolder extends RecyclerView.ViewHolder {
         username = (TextView) itemView.findViewById(R.id.username);
         imageView = (ImageView) itemView.findViewById(R.id.imageview);
         likeButton = (LikeButton) itemView.findViewById(R.id.likebutton);
+        numLikes = (TextView) itemView.findViewById(R.id.numLikes);
+        cardView = (CardView) itemView.findViewById(R.id.card_view);
     }
 
     public TextView getName() {
@@ -51,5 +57,11 @@ public class FoodSpotViewHolder extends RecyclerView.ViewHolder {
         return likeButton;
     }
 
+    public TextView getNumLikes() {
+        return numLikes;
+    }
 
+    public CardView getCardView() {
+        return cardView;
+    }
 }
