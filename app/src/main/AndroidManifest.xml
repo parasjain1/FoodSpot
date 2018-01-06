@@ -52,7 +52,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
-        <activity android:name=".CreateFoodspotActivity" />
+        <activity
+            android:name=".CreateFoodspotActivity"/>
         <activity
             android:name=".FoodSpotDetailsActivity"
             android:label="@string/title_activity_food_spot_details"></activity>
