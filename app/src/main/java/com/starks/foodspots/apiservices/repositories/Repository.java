@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import okhttp3.MediaType;
+import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -60,9 +61,9 @@ public class Repository {
         call.enqueue(callback);
     }
 
-    public void createFoodSpot(Map<String, String> map, Callback callback){
+    public void createFoodSpot(MultipartBody.Part[] images, Map<String, String> map, Callback callback){
         Log.d(TAG, "CreateFoodSpot: " + map.toString());
-        Call<FoodSpot> call = apiService.createFoodSpot(getPartMap(map));
+        Call<FoodSpot> call = apiService.createFoodSpot(images, getPartMap(map));
         call.enqueue(callback);
     }
 

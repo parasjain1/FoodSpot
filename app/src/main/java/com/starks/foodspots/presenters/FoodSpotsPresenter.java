@@ -1,12 +1,15 @@
 package com.starks.foodspots.presenters;
 
+import android.graphics.Bitmap;
 import android.util.Log;
 
 import com.starks.foodspots.FoodSpotSuggestion;
 import com.starks.foodspots.apiservices.repositories.Repository;
 import com.starks.foodspots.interfaces.OnFoodSpotsReceiveListener;
 import com.starks.foodspots.models.FoodSpot;
+import com.starks.foodspots.utils.ImageCompressor;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -99,6 +102,19 @@ public class FoodSpotsPresenter {
                 Log.d(TAG, t.getMessage());
             }
         });
+    }
+
+    public void addFoodSpot(Map<String, String> map, ArrayList<Bitmap> bitmaps){
+
+    //    ImageCompressor imageCompressor = new ImageCompressor(context);
+    //    Uri uri = imageCompressor.compress(bitmap);
+    //            if(uri == null){
+    //        viewAction.showToast("Unable to save image to internal storage for upload. Please check Write Permissions for Funcandi in Settings. ");
+    //        return;
+    //    }
+    //    File file = new File(uri.getPath());
+    //    MultipartBody.Part filePart = MultipartBody.Part.createFormData("uploadFile", file.getName(), RequestBody.create(MediaType.parse("image/*"), file));
+
     }
 
 

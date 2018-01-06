@@ -85,15 +85,5 @@ public class ImageCompressor {
         }
 
     }
-
-//    ImageCompressor imageCompressor = new ImageCompressor(context);
-//    Uri uri = imageCompressor.compress(bitmap);
-//            if(uri == null){
-//        viewAction.showToast("Unable to save image to internal storage for upload. Please check Write Permissions for Funcandi in Settings. ");
-//        return;
-//    }
-//    File file = new File(uri.getPath());
-//    MultipartBody.Part filePart = MultipartBody.Part.createFormData("uploadFile", file.getName(), RequestBody.create(MediaType.parse("image/*"), file));
-
 }
 

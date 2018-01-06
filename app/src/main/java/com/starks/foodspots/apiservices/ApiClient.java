@@ -55,6 +55,7 @@ public class ApiClient {
                                     }
                                 })
                         .readTimeout(120, TimeUnit.SECONDS)
+                        .writeTimeout(120, TimeUnit.SECONDS)
                         .connectTimeout(120, TimeUnit.SECONDS)
                         .build();
 
