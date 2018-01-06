@@ -24,6 +24,9 @@
     <string name="title_activity_search">SearchActivity</string>
     <string name="notify_user_validation">Your post will be visible to other users once our moderators validate it.</string>
     <string name="name">Name</string>
+    <string name="foodTrucks">Food Truck</string>
+    <string name="streetVendors">Street Vendor</string>
+    <string name="Type">Type</string>
 
 </resources>
 

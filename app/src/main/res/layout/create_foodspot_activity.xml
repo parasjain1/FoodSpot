@@ -30,14 +30,165 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Select Photo" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/previousButton1"
+                    android:layout_height="50dp"
+                    android:elevation="2dp"
+                    android:text="Previous"
+                    android:background="#FF8F00"
+                    android:textColor="@color/black"
+                    android:layout_width="150dp"
+                    android:layout_weight="1"
+                    android:layout_marginRight="1dp"/>
+                <Button
+                    android:layout_width="150dp"
+                    android:id="@+id/nextButton1"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Next"
+                    android:elevation="2dp"
+                    android:background="#FF8F00"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="1dp"/>
+
+            </LinearLayout>
 
             <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/imagesRecyclerView">
-
+                android:id="@+id/imagesRecyclerView"
+                android:visibility="gone">
             </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/tick"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/tick"
+                android:background="@color/black"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Done!"
+                android:textColor="@color/white_it"
+                android:textSize="30dp"
+                android:layout_marginTop="25dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:textSize="15dp"
+                android:textAlignment="center"
+                android:text="@string/notify_user_validation"
+                android:textColor="@color/white_it"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:paddingLeft="24dp"
+            android:gravity="center"
+            android:paddingRight="24dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:weightSum="1">
+            <EditText
+                android:id="@+id/EditTextDescription"
+                android:layout_height="100dp"
+                android:hint="Description"
+                android:layout_marginTop="20dp"
+                android:textColor="#B2DFDB"
+                android:textColorHint="#B2DFDB"
+                android:inputType="textMultiLine"
+                android:layout_width="fill_parent">
+            </EditText>
+            <EditText
+                android:id="@+id/EditTextSpeciality"
+                android:layout_height="50dp"
+                android:hint="Speciality"
+                android:layout_marginTop="20dp"
+                android:textColor="#B2DFDB"
+                android:textColorHint="#B2DFDB"
+                android:inputType="text"
+                android:layout_width="fill_parent">
+            </EditText>
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:id="@+id/nonvegi"
+                    android:layout_marginTop="20dp"
+                    android:text="Non-Veg"
+                    android:textColor="@color/black"
+                    android:background="#aaaaaa"
+                    android:layout_weight="1"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:id="@+id/vegi"
+                    android:textColor="@color/black"
+                    android:background="#aaaaaa"
+                    android:layout_weight="1"
+                    android:layout_marginTop="20dp"
+                    android:text="Veg"/>
+            </LinearLayout>
+
+            <Spinner
+                android:id="@+id/spinnerPreference"
+                android:prompt="@string/foodType"
+                android:background="@drawable/spinner_bg"
+                android:entries="@array/preference"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:spinnerMode="dropdown"
+                android:layout_marginTop="20dp"
+                ></Spinner>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/previousButton2"
+                    android:layout_height="50dp"
+                    android:elevation="2dp"
+                    android:text="Previous"
+                    android:background="#FF8F00"
+                    android:textColor="@color/black"
+                    android:layout_width="150dp"
+                    android:layout_weight="1"
+                    android:layout_marginRight="1dp"/>
+                <Button
+                    android:layout_width="150dp"
+                    android:id="@+id/nextButton2"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Next"
+                    android:elevation="2dp"
+                    android:background="#FF8F00"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="1dp"/>
+
+            </LinearLayout>
         </LinearLayout>
 
 
@@ -95,7 +246,7 @@
                     android:layout_height="50dp"
                     android:layout_marginTop="20dp"
                     android:ems="10"
-                    android:textSize="10dp"
+                    android:textSize="15dp"
                     android:textColor="#B2DFDB"
                     android:layout_marginRight="3dp"
                     android:inputType="time"
@@ -106,7 +257,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_width="wrap_content"
                     android:layout_marginLeft="3dp"
-                    android:textSize="10dp"
+                    android:textSize="15dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:textColor="#B2DFDB"
@@ -115,46 +266,17 @@
                     android:textColorHint="#B2DFDB"/>
 
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:id="@+id/nonvegi"
-                    android:layout_marginTop="20dp"
-                    android:text="Non-Veg"
-                    android:layout_weight="1"/>
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:id="@+id/vegi"
-                    android:layout_weight="1"
-                    android:layout_marginTop="20dp"
-                    android:text="Veg"/>
-            </LinearLayout>
 
             <Spinner
-                android:id="@+id/spinnerPreference"
-                android:prompt="@string/foodType"
+                android:id="@+id/spinnerType"
+                android:prompt="@string/Type"
                 android:background="@drawable/spinner_bg"
-                android:entries="@array/preference"
+                android:entries="@array/type"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
                 android:spinnerMode="dropdown"
                 android:layout_marginTop="20dp"
                 ></Spinner>
-            <EditText
-                android:id="@+id/EditTextDiscription"
-                android:layout_height="100dp"
-                android:hint="Discriptiton"
-                android:layout_marginTop="20dp"
-                android:textColor="#B2DFDB"
-                android:textColorHint="#B2DFDB"
-                android:inputType="textMultiLine"
-                android:layout_width="fill_parent">
-            </EditText>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -183,36 +305,6 @@
                     android:layout_marginLeft="1dp"/>
 
             </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
-            <ImageView
-                android:id="@+id/tick"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/tick"
-                android:background="@color/black"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Done!"
-                android:textColor="@color/white_it"
-                android:textSize="30dp"
-                android:layout_marginTop="25dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:textSize="15dp"
-                android:textAlignment="center"
-                android:text="@string/notify_user_validation"
-                android:textColor="@color/white_it"
-                />
         </LinearLayout>
     </ViewFlipper>
 
