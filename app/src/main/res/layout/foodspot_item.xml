@@ -39,7 +39,19 @@
             android:cropToPadding="true"
             android:scaleType="centerCrop"
             android:layout_below="@id/username"
-            android:src="@drawable/logo" />
+            android:src="@drawable/logo">
+        </ImageView>
+
+        <ImageButton
+            android:id="@+id/popUpMenuButton"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/ic_keyboard_arrow_down_black_24dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="@null"/>
 
 
         <RelativeLayout

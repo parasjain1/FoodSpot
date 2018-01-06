@@ -18,10 +18,12 @@ import android.view.ViewGroup;
 import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
 import com.starks.foodspots.FoodSpotSuggestion;
 import com.starks.foodspots.MainActivity;
+import com.starks.foodspots.MyApplication;
 import com.starks.foodspots.R;
 import com.starks.foodspots.adapters.FoodSpotsListAdapter;
 import com.starks.foodspots.interfaces.OnFoodSpotsReceiveListener;
 import com.starks.foodspots.models.FoodSpot;
+import com.starks.foodspots.models.User;
 import com.starks.foodspots.presenters.FoodSpotsPresenter;
 import com.starks.foodspots.services.LocationService;
 
@@ -39,9 +41,20 @@ public class HomeFragment1 extends Fragment {
     private static final String TAG = HomeFragment1.class.getSimpleName();
     RecyclerView recyclerView;
     FoodSpotsListAdapter foodSpotsListAdapter;
+    Boolean showUsersPosts;
 
-    public static HomeFragment1 newInstance() {
-        return new HomeFragment1();
+    public HomeFragment1(){
+
+    }
+
+    public HomeFragment1(boolean showUsersPosts){
+        super();
+        this.showUsersPosts = false;
+        this.showUsersPosts = showUsersPosts;
+    }
+
+    public static HomeFragment1 newInstance(Boolean showUsersPosts) {
+        return new HomeFragment1(showUsersPosts);
     }
 
     @Override
@@ -79,6 +92,11 @@ public class HomeFragment1 extends Fragment {
                 Log.d(TAG, foodSpots.size() + " foodSpots received");
                 allFoodSpots.addAll(foodSpots);
                 foodSpotsListAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onDelete() {
+
             }
 
             @Override
@@ -130,6 +148,11 @@ public class HomeFragment1 extends Fragment {
                     map.put("lat", location.getLatitude() + "");
                     map.put("lng", location.getLongitude() + "");
                     map.put("maxDistance", "999999");
+                    if(showUsersPosts != null && showUsersPosts) {
+                        User user = MyApplication.getInstance().prefManager.getUser();
+                        if (user != null)
+                            map.put("username", user.getUsername());
+                    }
                     foodSpotsPresenter.getFoodSpots(map);
                 }
             }
@@ -138,5 +161,6 @@ public class HomeFragment1 extends Fragment {
 
 
     }
+
 
 }

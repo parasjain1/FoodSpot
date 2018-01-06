@@ -2,18 +2,23 @@ package com.starks.foodspots.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.like.LikeButton;
 import com.like.OnLikeListener;
 import com.squareup.picasso.Picasso;
 import com.starks.foodspots.FoodSpotDetailsActivity;
+import com.starks.foodspots.MyApplication;
 import com.starks.foodspots.R;
+import com.starks.foodspots.interfaces.FoodSpotsMenuClickListener;
 import com.starks.foodspots.interfaces.GetUsersListener;
 import com.starks.foodspots.interfaces.VotesViewAction;
 import com.starks.foodspots.models.FoodSpot;
@@ -51,7 +56,7 @@ public class FoodSpotsListAdapter extends RecyclerView.Adapter<FoodSpotViewHolde
     }
 
     @Override
-    public void onBindViewHolder(final FoodSpotViewHolder holder, int position) {
+    public void onBindViewHolder(final FoodSpotViewHolder holder, final int position) {
         Log.d(TAG, "onBindViewHolder " + position);
         final FoodSpot foodSpot = foodSpots.get(position);
         holder.getName().setText(foodSpot.getName());
@@ -110,6 +115,26 @@ public class FoodSpotsListAdapter extends RecyclerView.Adapter<FoodSpotViewHolde
             }
         });
 
+        if(foodSpot.getOwner() != MyApplication.getInstance().prefManager.getUser().getId())
+            holder.getPopUpMenuButton().setVisibility(View.GONE);
+        else {
+            holder.getPopUpMenuButton().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showPopupMenu(v);
+                }
+
+                void showPopupMenu(View view){
+                    // inflate menu
+                    PopupMenu popup = new PopupMenu(context,view);
+                    MenuInflater inflater = popup.getMenuInflater();
+                    inflater.inflate(R.menu.foodspot_list_item_menu, popup.getMenu());
+                    popup.setOnMenuItemClickListener(new FoodSpotsMenuClickListener(FoodSpotsListAdapter.this, position));
+                    popup.show();
+                }
+            });
+        }
+
         GetUsersListener getUsersListener = new GetUsersListener() {
             @Override
             public void displayMessage(String message) {
@@ -158,8 +183,7 @@ public class FoodSpotsListAdapter extends RecyclerView.Adapter<FoodSpotViewHolde
         new GetUsersPresenter(getUsersListener).getUser(foodSpot.getOwner());
 
         holder.getLocation().setText(
-                foodSpot.getLocation().getStreetAddress() +
-                foodSpot.getLocation().getCity() +
+                foodSpot.getLocation().getCity() + ", " +
                 foodSpot.getLocation().getState());
         if(foodSpot.getGallery().size() != 0)
             Picasso.with(context).load(Constants.ip + foodSpot.getGallery().get(0).getImage()).fit().centerCrop().into(holder.getImageView());
@@ -169,4 +193,10 @@ public class FoodSpotsListAdapter extends RecyclerView.Adapter<FoodSpotViewHolde
     public int getItemCount() {
         return foodSpots.size();
     }
+
+    public FoodSpot getItem(Integer position){
+        return foodSpots.get(position);
+    }
+
+    public Context getContext() { return this.context; }
 }

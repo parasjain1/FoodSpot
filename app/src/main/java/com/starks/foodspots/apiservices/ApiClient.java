@@ -27,11 +27,17 @@ public class ApiClient {
     //private static final String BASE_URL = "http://192.168.0.103:9090/funcandi/";
     private static final String BASE_URL = Constants.ip +"api/";
     private static Retrofit retrofit = null;
-    private static String token = MyApplication.getInstance().prefManager.getToken();
+    private static String token;
+    private static final String TAG = ApiClient.class.getSimpleName();
 
 
-    public static Retrofit getClient(final String header) {
+    public static Retrofit getClient() {
+        Log.d(TAG, "getClient called");
         if (retrofit == null || token.equals("")) {
+
+            token = MyApplication.getInstance().prefManager.getToken();
+
+            Log.d(TAG, "creating retrofit client...");
 
 
             final String authHeader = (token.equals("")) ? Constants.ANONYMOUS_AUTH_HEADER : "token " + token;

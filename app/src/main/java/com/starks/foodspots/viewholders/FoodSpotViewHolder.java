@@ -3,6 +3,7 @@ package com.starks.foodspots.viewholders;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,6 +25,7 @@ public class FoodSpotViewHolder extends RecyclerView.ViewHolder {
     ImageView imageView;
     LikeButton likeButton;
     CardView cardView;
+    ImageButton popUpMenuButton;
 
 
     public FoodSpotViewHolder(View itemView) {
@@ -35,6 +37,11 @@ public class FoodSpotViewHolder extends RecyclerView.ViewHolder {
         likeButton = (LikeButton) itemView.findViewById(R.id.likebutton);
         numLikes = (TextView) itemView.findViewById(R.id.numLikes);
         cardView = (CardView) itemView.findViewById(R.id.card_view);
+        popUpMenuButton = (ImageButton) itemView.findViewById(R.id.popUpMenuButton);
+    }
+
+    public ImageButton getPopUpMenuButton() {
+        return popUpMenuButton;
     }
 
     public TextView getName() {

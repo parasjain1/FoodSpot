@@ -85,6 +85,22 @@ public class FoodSpotsPresenter {
         });
     }
 
+    public void deleteFoodSpot(Integer foodSpotId){
+        repository.deleteFoodSpot(foodSpotId, new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                Log.d(TAG, "Delete " + response.code() + " " + response.message());
+                if(response.code() == 204)  //No content (Success)
+                    viewAction.onDelete();
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                Log.d(TAG, t.getMessage());
+            }
+        });
+    }
+
 
 
 

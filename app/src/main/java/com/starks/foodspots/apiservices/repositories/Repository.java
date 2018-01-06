@@ -34,7 +34,7 @@ public class Repository {
 //        this.header = application.prefManager.getToken();
     }
 
-    APIEndpoint apiService = ApiClient.getClient(header).create(APIEndpoint.class);
+    APIEndpoint apiService = ApiClient.getClient().create(APIEndpoint.class);
 
     public void signUp(Map<String, String> map, Callback callback){
         Log.d(TAG, "Signup: " + map.toString());
@@ -127,6 +127,16 @@ public class Repository {
     public void search(Map<String, String> map, Callback callback){
         Log.d(TAG, "Search: " + map.toString());
         apiService.search(map).enqueue(callback);
+    }
+
+    public void getCurrentUser(Callback callback){
+        Log.d(TAG, "GetUserByToken");
+        apiService.getUserByToken().enqueue(callback);
+    }
+
+    public void deleteFoodSpot(Integer foodSpotId, Callback callback){
+        Log.d(TAG, "DeleteFoodSpot");
+        apiService.deleteFoodSpot(foodSpotId + "").enqueue(callback);
     }
 
     private Map<String, RequestBody> getPartMap(Map<String, String> map){

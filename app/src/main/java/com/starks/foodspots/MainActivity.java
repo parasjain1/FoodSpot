@@ -106,9 +106,9 @@ public class MainActivity extends BaseActivity implements
             public Fragment getItem(int position) {
                 switch (position % 3) {
                     case 0:
-                        return HomeFragment1.newInstance();
-                    //case 1:
-                    //    return RecyclerViewFragment.newInstance();
+                        return HomeFragment1.newInstance(false);
+                    case 1:
+                        return HomeFragment1.newInstance(true);
                     //case 2:
                     //    return WebViewFragment.newInstance();
                     default:
@@ -313,6 +313,11 @@ public class MainActivity extends BaseActivity implements
 
     @Override
     public void onReceiveFoodSpots(ArrayList<FoodSpot> foodSpots) {
+
+    }
+
+    @Override
+    public void onDelete() {
 
     }
 

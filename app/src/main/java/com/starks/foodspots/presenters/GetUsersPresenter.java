@@ -70,4 +70,21 @@ public class GetUsersPresenter {
             }
         });
     }
+
+    public void getCurrentUser(){
+        repository.getCurrentUser(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                Log.d(TAG, "GetUserByToken : " + response.code() + " " + response.message());
+                if(response.code() == 200){
+                    viewAction.onReceiveUser((User) response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+
+            }
+        });
+    }
 }

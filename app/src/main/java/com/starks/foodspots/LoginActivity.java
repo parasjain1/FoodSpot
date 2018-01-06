@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +15,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.starks.foodspots.apiservices.responses.LoginResponse;
+import com.starks.foodspots.interfaces.GetUsersListener;
 import com.starks.foodspots.interfaces.LoginViewAction;
+import com.starks.foodspots.models.User;
+import com.starks.foodspots.presenters.GetUsersPresenter;
 import com.starks.foodspots.presenters.LoginPresenter;
 import com.starks.foodspots.utils.CustomLoader;
 import com.starks.foodspots.utils.PrefManager;
@@ -96,8 +100,44 @@ public class LoginActivity extends BaseActivity implements LoginViewAction {
 
     @Override
     public void onLogin(LoginResponse loginResponse) {
-        new PrefManager(this).putToken(loginResponse.getToken());
-        startActivity(new Intent(this, MainActivity.class));
+        MyApplication.getInstance().prefManager.putToken(loginResponse.getToken());
+        new GetUsersPresenter(new GetUsersListener() {
+            @Override
+            public void onReceiveUsers(ArrayList<User> users) {
+
+            }
+
+            @Override
+            public void onReceiveUser(User user) {
+                MyApplication.getInstance().prefManager.putUser(user);
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            }
+
+            @Override
+            public void displayMessage(String message) {
+
+            }
+
+            @Override
+            public void showLoader() {
+
+            }
+
+            @Override
+            public void hideLoader() {
+
+            }
+
+            @Override
+            public void showNetworkTimeoutError() {
+
+            }
+
+            @Override
+            public void showNoNetworkException() {
+
+            }
+        }).getCurrentUser();
 
     }
 

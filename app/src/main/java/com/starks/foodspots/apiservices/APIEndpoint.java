@@ -97,4 +97,7 @@ public interface APIEndpoint {
     @GET("foodspots/search/")
     Call<FoodSpot[]> search(@QueryMap Map<String, String> map);
 
+    @GET("users/by_token")
+    Call<User> getUserByToken();
+
 }
