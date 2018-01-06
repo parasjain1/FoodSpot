@@ -39,6 +39,7 @@
         android:layout_height="wrap_content"
         tools:ignore="MissingPrefix"
         fontPath="fonts/Lobster-Regular.ttf"
+        android:layout_centerHorizontal="true"
         />
 
 </RelativeLayout>
