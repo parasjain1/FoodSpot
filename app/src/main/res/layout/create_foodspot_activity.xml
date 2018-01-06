@@ -12,29 +12,26 @@
         android:layout_margin="6dip" >
 
         <!--  The child Views/Layout to flip -->
+
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="vertical">
-
+            android:padding="5dp" >
             <ImageView
-                android:layout_width="450dp"
-                android:layout_height="430dp"
-                android:layout_marginTop="15dp"
-                android:src="@color/background" />
-
-            <TextView
-                android:id="@+id/textView"
+                android:id="@+id/ivImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="This Is Screen 1"
-                android:textColor="#191975"
-                android:textSize="25dp"
-                android:textStyle="bold"></TextView>
+                android:src="@color/background" />
+
+            <Button
+                android:id="@+id/btnSelectPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Select Photo" />
 
         </LinearLayout>
+
 
         <!--  Layout 1 for 1st Screen -->
 
@@ -78,6 +75,16 @@
                 android:inputType="phone"
                 android:layout_width="fill_parent">
             </EditText>
+            <Spinner
+                android:id="@+id/spinnerPreference"
+                android:prompt="@string/foodType"
+                android:background="@drawable/spinner_bg"
+                android:entries="@array/preference"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:spinnerMode="dropdown"
+                android:layout_marginTop="20dp"
+                ></Spinner>
             <EditText
                 android:id="@+id/EditTextDiscription"
                 android:layout_height="100dp"

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="preference">
+        <item>@string/nonVeg</item>
+        <item>@string/veg</item>
+    </string-array>
+</resources>

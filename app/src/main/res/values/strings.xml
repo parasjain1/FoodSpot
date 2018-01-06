@@ -11,4 +11,8 @@
     <string name="btn_sign_up">SignUp</string>
     <string name="btn_link_login">Login</string>
     <string name="defined_view_stub_font_path">Wander with food!</string>
+    <string name="nonVeg">Non-Veg</string>
+    <string name="veg">Veg</string>
+    <string name="foodType">Food Type</string>
+    <string name="preference">Preference</string>
 </resources>
