@@ -107,6 +107,26 @@
                     android:textColorHint="#B2DFDB"/>
 
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:id="@+id/nonvegi"
+                    android:layout_marginTop="20dp"
+                    android:text="Non-Veg"
+                    android:layout_weight="1"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:id="@+id/vegi"
+                    android:layout_weight="1"
+                    android:layout_marginTop="20dp"
+                    android:text="Veg"/>
+            </LinearLayout>
+
             <Spinner
                 android:id="@+id/spinnerPreference"
                 android:prompt="@string/foodType"
