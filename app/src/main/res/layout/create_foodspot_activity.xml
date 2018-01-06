@@ -25,11 +25,8 @@
                 android:src="@color/background" />
 
             <Button
-                android:id="@+id/selectImagesButton"
-                android:layout_width="320dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_gravity="center_horizontal"
+                android:id="@+id/btnSelectPhoto"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Select Photo" />
 
@@ -64,6 +61,7 @@
                 android:id="@+id/EditTextName"
                 android:layout_height="50dp"
                 android:hint="Name"
+                android:textColor="#B2DFDB"
                 android:textColorHint="#B2DFDB"
                 android:layout_marginTop="20dp"
                 android:inputType="textPersonName"
@@ -73,11 +71,42 @@
                 android:id="@+id/EditTextContact"
                 android:layout_height="50dp"
                 android:hint="Contact"
+                android:textColor="#B2DFDB"
                 android:textColorHint="#B2DFDB"
                 android:layout_marginTop="20dp"
                 android:inputType="phone"
                 android:layout_width="fill_parent">
             </EditText>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/openTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:ems="10"
+                    android:textSize="10dp"
+                    android:textColor="#B2DFDB"
+                    android:layout_marginRight="3dp"
+                    android:inputType="time"
+                    android:hint="Opening Time"
+                    android:textColorHint="#B2DFDB"/>
+                <EditText
+                    android:id="@+id/closingTime"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:textSize="10dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:textColor="#B2DFDB"
+                    android:inputType="time"
+                    android:hint="Closing Time"
+                    android:textColorHint="#B2DFDB"/>
+
+            </LinearLayout>
             <Spinner
                 android:id="@+id/spinnerPreference"
                 android:prompt="@string/foodType"
@@ -91,8 +120,9 @@
             <EditText
                 android:id="@+id/EditTextDiscription"
                 android:layout_height="100dp"
-                android:hint="DIscriptiton"
+                android:hint="Discriptiton"
                 android:layout_marginTop="20dp"
+                android:textColor="#B2DFDB"
                 android:textColorHint="#B2DFDB"
                 android:inputType="textMultiLine"
                 android:layout_width="fill_parent">
