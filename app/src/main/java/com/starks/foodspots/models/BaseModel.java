@@ -5,5 +5,9 @@ package com.starks.foodspots.models;
  */
 
 abstract public class BaseModel {
-    int id;
+    protected int id;
+
+    public int getId() {
+        return id;
+    }
 }

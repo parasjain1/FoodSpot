@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by sharda on 02/01/18.
  */
 
-public class FoodSpot extends BaseModel {
+public class FoodSpot{
     Location location;
     Integer owner;
     ArrayList<FoodspotImage> gallery;
@@ -21,6 +21,16 @@ public class FoodSpot extends BaseModel {
     String contact;
     String description;
     String timestamp;
+    Integer id;
+    ArrayList<Vote> userLiked;
+
+    public ArrayList<Vote> getUserLiked() {
+        return userLiked;
+    }
+
+    public Integer getId() {
+        return id;
+    }
 
     public Location getLocation() {
         return location;

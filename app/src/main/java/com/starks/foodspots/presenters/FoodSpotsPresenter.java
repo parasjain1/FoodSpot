@@ -24,12 +24,12 @@ public class FoodSpotsPresenter {
     private OnFoodSpotsReceiveListener viewAction;
     private static final String TAG = FoodSpotsPresenter.class.getSimpleName();
 
-    public FoodSpotsPresenter(OnFoodSpotsReceiveListener foodSpotSearchListener){
-        this.viewAction = foodSpotSearchListener;
+    public FoodSpotsPresenter(OnFoodSpotsReceiveListener onFoodSpotsReceiveListener){
+        this.viewAction = onFoodSpotsReceiveListener;
     }
 
     public void searchFoodSpots(Map<String, String> map){
-        repository.getFoodSpots(map, new Callback() {
+        repository.search(map, new Callback() {
 
             @Override
             public void onResponse(Call call, Response response) {
