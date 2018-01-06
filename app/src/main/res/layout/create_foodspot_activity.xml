@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
+    android:background="@color/black"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
-
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="#000099"
-        android:textSize="30dp"
-        android:text="Add details" />
 
     <ViewFlipper
         android:id="@+id/view_flipper"
@@ -21,60 +13,116 @@
 
         <!--  The child Views/Layout to flip -->
 
-        <!--  Layout 1 for 1st Screen -->
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="vertical" >
-
+            android:padding="5dp" >
             <ImageView
-                android:layout_marginTop="15dp"
-                android:layout_width="450dp"
-                android:layout_height="450dp"
-                android:src="@color/background" />
-
-            <TextView
+                android:id="@+id/ivImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="This Is Screen 1"
-                android:textColor="#191975"
-                android:textSize="25dp"
-                android:textStyle="bold" >
-            </TextView>
+                android:src="@color/background" />
 
+            <Button
+                android:id="@+id/btnSelectPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Select Photo" />
 
         </LinearLayout>
+
+
+        <!--  Layout 1 for 1st Screen -->
 
         <!--  Layout 2 for 2nd Screen -->
 
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
+            android:paddingLeft="24dp"
             android:gravity="center"
-            android:orientation="vertical" >
+            android:paddingRight="24dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:weightSum="1">
 
-            <ImageView
-                android:layout_marginTop="15dp"
-                android:id="@+id/imageView1"
-                android:layout_width="450dp"
-                android:layout_height="450dp"
-                android:src="@color/cardview_light_background" />
 
-            <TextView
-                android:layout_marginTop="15dp"
-                android:layout_width="wrap_content"
+           <TextView
+               android:id="@+id/TextViewTitle"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Post"
+               android:layout_marginTop="20dp"
+               android:textColor="#B2DFDB"
+               android:textSize="10pt"/>
+            <EditText
+                android:id="@+id/EditTextName"
+                android:layout_height="50dp"
+                android:hint="Name"
+                android:textColorHint="#B2DFDB"
+                android:layout_marginTop="20dp"
+                android:inputType="textPersonName"
+                android:layout_width="fill_parent">
+            </EditText>
+            <EditText
+                android:id="@+id/EditTextContact"
+                android:layout_height="50dp"
+                android:hint="Contact"
+                android:textColorHint="#B2DFDB"
+                android:layout_marginTop="20dp"
+                android:inputType="phone"
+                android:layout_width="fill_parent">
+            </EditText>
+            <Spinner
+                android:id="@+id/spinnerPreference"
+                android:prompt="@string/foodType"
+                android:background="@drawable/spinner_bg"
+                android:entries="@array/preference"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:spinnerMode="dropdown"
+                android:layout_marginTop="20dp"
+                ></Spinner>
+            <EditText
+                android:id="@+id/EditTextDiscription"
+                android:layout_height="100dp"
+                android:hint="DIscriptiton"
+                android:layout_marginTop="20dp"
+                android:textColorHint="#B2DFDB"
+                android:inputType="textMultiLine"
+                android:layout_width="fill_parent">
+            </EditText>
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="This Is Screen 2"
-                android:textColor="#191975"
-                android:textSize="25dp"
-                android:textStyle="bold" >
-            </TextView>
+                android:orientation="horizontal">
+                <Button
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/previousButton"
+                    android:layout_height="50dp"
+                    android:elevation="2dp"
+                    android:text="Previous"
+                    android:background="#FF8F00"
+                    android:textColor="@color/black"
+                    android:layout_width="150dp"
+                    android:layout_weight="1"
+                    android:layout_marginRight="1dp"/>
+                <Button
+                    android:layout_width="150dp"
+                    android:id="@+id/nextButton"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Next"
+                    android:elevation="2dp"
+                    android:background="#FF8F00"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="1dp"/>
 
+            </LinearLayout>
         </LinearLayout>
-
-
     </ViewFlipper>
 
 </LinearLayout>

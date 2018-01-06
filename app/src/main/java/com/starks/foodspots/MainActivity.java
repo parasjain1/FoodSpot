@@ -145,13 +145,13 @@ public class MainActivity extends BaseActivity implements
                                 R.color.header_color,
                                 getResources().getDrawable(R.drawable.homepage_header1));
                     case 1:
-                        return HeaderDesign.fromColorResAndUrl(
+                        return HeaderDesign.fromColorResAndDrawable(
                                 R.color.header_color,
-                                "http://www.hdiphonewallpapers.us/phone-wallpapers/540x960-1/540x960-mobile-wallpapers-hd-2218x5ox3.jpg");
+                                getResources().getDrawable(R.drawable.homepage_header2));
                     case 2:
-                        return HeaderDesign.fromColorResAndUrl(
+                        return HeaderDesign.fromColorResAndDrawable(
                                 R.color.header_color,
-                                "http://www.droid-life.com/wp-content/uploads/2014/10/lollipop-wallpapers10.jpg");
+                                getResources().getDrawable(R.drawable.homepage_header3));
                 }
 
                 //execute others actions if needed (ex : modify your header logo)
