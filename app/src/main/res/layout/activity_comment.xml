@@ -47,6 +47,7 @@
         android:textColor="@color/white_it"
         android:textSize="25dp"/>
     <EditText
+        android:id="@+id/editComment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Type Here..."
@@ -57,6 +58,7 @@
         android:layout_marginTop="20dp"
         />
     <Button
+        android:id="@+id/btnSubmit"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="SUBMIT"
