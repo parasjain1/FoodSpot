@@ -84,6 +84,7 @@
                 android:layout_height="45dp"
                 android:ems="10"
                 android:hint="@string/hint_dob"/>
+
         </android.support.design.widget.TextInputLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -120,21 +121,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Non-Veg"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
                 android:textColor="@color/black"
-                android:textSize="20dp"/>
-            <ToggleButton
-                android:id="@+id/toggleButton1"
-                android:layout_width="60dp"
+                android:textSize="15dp"/>
+            <android.support.v7.widget.SwitchCompat
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/toggleButton1"
-                android:layout_alignBottom="@+id/genderRadioGroup"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/nonveg"
-                android:text="Veg"
-                android:backgroundTint="@color/green"
-                android:textOff="No"
-                android:textOn="Yes"
-                />
+                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true"
+                android:checked="false"
+                android:layout_marginLeft="15dp"
+                android:theme="@style/selectSwitch" />
 
 
         </LinearLayout>
