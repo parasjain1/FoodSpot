@@ -13,6 +13,11 @@
     <string name="defined_view_stub_font_path">Wander with food!</string>
     <string name="nonVeg">Non-Veg</string>
     <string name="veg">Veg</string>
+    <string name="excellent">Excellent</string>
+    <string name="good">Good</string>
+    <string name="average">Average</string>
+    <string name="poor">Poor</string>
+    <string name="outstanding">Outstanding</string>
     <string name="preference">Preference</string>
     <string name="foodType">Food type</string>
     <string name="title_activity_food_spot_details">FoodSpotDetailsActivity</string>

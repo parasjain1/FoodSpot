@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="preference">
-        <item>@string/nonVeg</item>
-        <item>@string/veg</item>
+        <item>@string/outstanding</item>
+        <item>@string/excellent</item>
+        <item>@string/good</item>
+        <item>@string/average</item>
+        <item>@string/poor</item>
     </string-array>
 </resources>
