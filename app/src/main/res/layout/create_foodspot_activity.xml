@@ -185,14 +185,32 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical">
-            <ImageButton
+            <ImageView
+                android:id="@+id/tick"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/tick"
+                android:background="@color/black"
+                />
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/tick"
+                android:text="Done!"
+                android:textColor="@color/white_it"
+                android:textSize="30dp"
+                android:layout_marginTop="25dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:textSize="15dp"
+                android:textAlignment="center"
+                android:text="@string/notify_user_validation"
+                android:textColor="@color/white_it"
                 />
         </LinearLayout>
     </ViewFlipper>
