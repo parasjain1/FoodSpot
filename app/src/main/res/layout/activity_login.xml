@@ -73,7 +73,6 @@
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/loginButton"
-            android:onClick=""
             android:layout_width="275dp"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
@@ -141,6 +140,12 @@
             android:textStyle="bold"
             android:textSize="15sp"
             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="click it"
+            android:id="@+id/profile"
+            android:textColor="@color/black"/>
 
 
     </LinearLayout>

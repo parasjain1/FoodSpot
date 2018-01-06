@@ -36,7 +36,7 @@ public class LoginActivity extends BaseActivity implements LoginViewAction {
     EditText emailEditText,passwordEditText;
     Button loginButton;
     LoginPresenter presenter;
-    TextView slide;
+    TextView slide,clickIt;
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
 
     @Override
@@ -54,10 +54,20 @@ public class LoginActivity extends BaseActivity implements LoginViewAction {
         emailEditText=(EditText) findViewById(R.id.email);
         passwordEditText=(EditText) findViewById(R.id.password);
         slide=(TextView) findViewById(R.id.slide);
+        clickIt=(TextView) findViewById(R.id.profile);
+
+
         slide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getApplicationContext(),CreateFoodspotActivity.class);
+                Intent i=new Intent(LoginActivity.this,CreateFoodspotActivity.class);
+                startActivity(i);
+            }
+        });
+        clickIt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(LoginActivity.this,MyProfileActiviy.class);
                 startActivity(i);
             }
         });

@@ -1,8 +1,12 @@
 package com.starks.foodspots;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ViewFlipper;
 
 /**
@@ -12,6 +16,8 @@ import android.widget.ViewFlipper;
 public class CreateFoodspotActivity  extends Activity{
     private ViewFlipper viewFlipper;
     private float lastX;
+    private static final int GET_IMAGES_REQUEST_CODE = 250;
+    Button selectImageButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -19,9 +25,23 @@ public class CreateFoodspotActivity  extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_foodspot_activity);
         viewFlipper = (ViewFlipper) findViewById(R.id.view_flipper);
+        selectImageButton = (Button) findViewById(R.id.selectImagesButton);
+        selectImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getImages();
+            }
+        });
     }
 
+    private static final int INTENT_REQUEST_GET_IMAGES = 13;
 
+    private void getImages() {
+
+        Intent chooseIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        chooseIntent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+        startActivityForResult(chooseIntent, GET_IMAGES_REQUEST_CODE);
+    }
 
     // Method to handle touch event like left to right swap and right to left swap
     public boolean onTouchEvent(MotionEvent touchevent)
@@ -69,5 +89,17 @@ public class CreateFoodspotActivity  extends Activity{
             }
         }
         return false;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode){
+            case GET_IMAGES_REQUEST_CODE:
+
+                break;
+            default:
+                super.onActivityResult(requestCode, resultCode, data);
+        }
+
     }
 }
