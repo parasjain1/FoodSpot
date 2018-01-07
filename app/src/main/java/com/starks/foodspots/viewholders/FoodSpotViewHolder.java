@@ -26,6 +26,8 @@ public class FoodSpotViewHolder extends RecyclerView.ViewHolder {
     LikeButton likeButton;
     CardView cardView;
     ImageButton popUpMenuButton;
+    ImageView commentButton;
+    TextView numComments;
 
 
     public FoodSpotViewHolder(View itemView) {
@@ -38,6 +40,9 @@ public class FoodSpotViewHolder extends RecyclerView.ViewHolder {
         numLikes = (TextView) itemView.findViewById(R.id.numLikes);
         cardView = (CardView) itemView.findViewById(R.id.card_view);
         popUpMenuButton = (ImageButton) itemView.findViewById(R.id.popUpMenuButton);
+        commentButton = (ImageView) itemView.findViewById(R.id.commentButton);
+        numComments = (TextView) itemView.findViewById(R.id.numComments);
+
     }
 
     public ImageButton getPopUpMenuButton() {
@@ -70,5 +75,13 @@ public class FoodSpotViewHolder extends RecyclerView.ViewHolder {
 
     public CardView getCardView() {
         return cardView;
+    }
+
+    public ImageView getCommentButton() {
+        return commentButton;
+    }
+
+    public TextView getNumComments() {
+        return numComments;
     }
 }

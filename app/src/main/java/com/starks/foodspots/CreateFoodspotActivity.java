@@ -109,7 +109,7 @@ public class CreateFoodspotActivity  extends BaseActivity implements OnAddFoodSp
     }
     void iniView(){
         viewFlipper = (ViewFlipper) findViewById(R.id.view_flipper);
-        editDiscription=(EditText) findViewById(R.id.EditTextDiscription);
+        editDiscription=(EditText) findViewById(R.id.EditTextDescription);
         editName=(EditText) findViewById(R.id.EditTextName);
         editContact=(EditText) findViewById(R.id.EditTextContact);
         editClose=(EditText) findViewById(R.id.closingTime);
