@@ -59,11 +59,11 @@ import okhttp3.RequestBody;
 public class CreateFoodspotActivity  extends BaseActivity implements OnAddFoodSpotListener {
     private ViewFlipper viewFlipper;
     private float lastX;
-    EditText editName,editContact,editDescription,editOpen,editClose;
+    EditText editName,editContact,editDiscription,editOpen,editClose;
     RecyclerView recyclerView;
     Spinner spinPref;
     static EditText openEdit,closeEdit;
-    Button btnNext,btnPref;
+    Button btnNext,btnPref, previousButton1, nextButton1, nextButton2, previousButton2;
     CheckBox checkNonveg,checkVeg;
     private static final int GET_IMAGES_REQUEST_CODE = 250;
     private static final String TAG = CreateFoodspotActivity.class.getSimpleName();
@@ -111,7 +111,7 @@ public class CreateFoodspotActivity  extends BaseActivity implements OnAddFoodSp
     }
     void iniView(){
         viewFlipper = (ViewFlipper) findViewById(R.id.view_flipper);
-        editDescription=(EditText) findViewById(R.id.EditTextDescription);
+        editDiscription=(EditText) findViewById(R.id.EditTextDescription);
         editName=(EditText) findViewById(R.id.EditTextName);
         editContact=(EditText) findViewById(R.id.EditTextContact);
         editClose=(EditText) findViewById(R.id.closingTime);
@@ -119,6 +119,60 @@ public class CreateFoodspotActivity  extends BaseActivity implements OnAddFoodSp
         spinPref=(Spinner) findViewById(R.id.spinnerPreference);
         btnNext=(Button) findViewById(R.id.nextButton);
         btnPref=(Button) findViewById(R.id.previousButton);
+        nextButton1 = (Button) findViewById(R.id.nextButton1);
+        nextButton2 = (Button) findViewById(R.id.nextButton2);
+        previousButton2 = (Button) findViewById(R.id.previousButton2);
+
+
+
+        nextButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewFlipper.setInAnimation(CreateFoodspotActivity.this, R.anim.in_from_right);
+                viewFlipper.setOutAnimation(CreateFoodspotActivity.this, R.anim.out_to_left);
+                viewFlipper.showNext();
+            }
+        });
+
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewFlipper.setInAnimation(CreateFoodspotActivity.this, R.anim.in_from_right);
+                viewFlipper.setOutAnimation(CreateFoodspotActivity.this, R.anim.out_to_left);
+                viewFlipper.showNext();
+            }
+        });
+
+        btnPref.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewFlipper.setInAnimation(CreateFoodspotActivity.this, R.anim.in_from_left);
+                viewFlipper.setOutAnimation(CreateFoodspotActivity.this, R.anim.out_to_right);
+                viewFlipper.showPrevious();
+            }
+        });
+
+        nextButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSubmit();
+            }
+        });
+
+        previousButton2.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        viewFlipper.setInAnimation(CreateFoodspotActivity.this, R.anim.in_from_left);
+                        viewFlipper.setOutAnimation(CreateFoodspotActivity.this, R.anim.out_to_right);
+                        viewFlipper.showPrevious();
+                    }
+                }
+        );
+
+
+
+
         checkNonveg=(CheckBox) findViewById(R.id.nonvegi);
         checkVeg=(CheckBox) findViewById(R.id.vegi);
     }
@@ -134,7 +188,9 @@ public class CreateFoodspotActivity  extends BaseActivity implements OnAddFoodSp
 
     @Override
     public void onFoodSpotAdded(FoodSpot foodSpot) {
-
+        viewFlipper.setInAnimation(CreateFoodspotActivity.this, R.anim.in_from_right);
+        viewFlipper.setOutAnimation(CreateFoodspotActivity.this, R.anim.out_to_left);
+        viewFlipper.showNext();
     }
 
     public static class ClosePickerFragment extends DialogFragment implements
@@ -233,6 +289,9 @@ public class CreateFoodspotActivity  extends BaseActivity implements OnAddFoodSp
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(data == null)
+            return;
+
         switch (requestCode){
             case GET_IMAGES_REQUEST_CODE:
                 ClipData clipData = data.getClipData();
@@ -332,9 +391,10 @@ public class CreateFoodspotActivity  extends BaseActivity implements OnAddFoodSp
             public void run() {
 
                 Location location = MainActivity.getInstance().getLocation();
-                map.put("name", "Barista");
-                map.put("contact", "8989898989");
-                map.put("description", "A nice place!");
+                map.put("name", editName.getText().toString());
+                map.put("contact", editContact.getText().toString());
+                map.put("description", editDiscription.getText().toString());
+                map.put("ownerRating", editDiscription.getText().toString());
                 map.put("location.lat", location.getLatitude() + "");
                 map.put("location.lng", location.getLongitude() + "");
                 if(location == null)

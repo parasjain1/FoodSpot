@@ -104,6 +104,22 @@ public class FoodSpotsPresenter {
         });
     }
 
+    public void getFoodSpot(String foodSpotId){
+        repository.getFoodSpot(foodSpotId, new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                if(response.code() == 200){
+                    viewAction.onReceiveFoodSpot((FoodSpot) response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+
+            }
+        });
+    }
+
     public void addFoodSpot(Map<String, String> map, ArrayList<Bitmap> bitmaps){
 
     //    ImageCompressor imageCompressor = new ImageCompressor(context);

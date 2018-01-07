@@ -95,6 +95,11 @@ public class SearchActivity extends AppCompatActivity implements OnFoodSpotsRece
     }
 
     @Override
+    public void onReceiveFoodSpot(FoodSpot foodSpot) {
+
+    }
+
+    @Override
     public void onDelete() {
 
     }

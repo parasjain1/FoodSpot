@@ -26,6 +26,7 @@
     <string name="name">Name</string>
     <string name="foodTrucks">Food Truck</string>
     <string name="streetVendors">Street Vendor</string>
+    <string name="restaurant">Restaurant</string>
     <string name="Type">Type</string>
 
 </resources>

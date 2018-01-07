@@ -316,6 +316,11 @@ public class MainActivity extends BaseActivity implements
     }
 
     @Override
+    public void onReceiveFoodSpot(FoodSpot foodSpot) {
+
+    }
+
+    @Override
     public void onDelete() {
 
     }

@@ -95,6 +95,11 @@ public class HomeFragment1 extends Fragment {
             }
 
             @Override
+            public void onReceiveFoodSpot(FoodSpot foodSpot) {
+
+            }
+
+            @Override
             public void onDelete() {
 
             }

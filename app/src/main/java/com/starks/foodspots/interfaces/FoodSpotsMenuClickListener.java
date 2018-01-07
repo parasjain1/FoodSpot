@@ -44,6 +44,11 @@ public class FoodSpotsMenuClickListener implements PopupMenu.OnMenuItemClickList
                     }
 
                     @Override
+                    public void onReceiveFoodSpot(FoodSpot foodSpot) {
+
+                    }
+
+                    @Override
                     public void onDelete() {
                         foodSpotsListAdapter.notifyItemRangeChanged(position, foodSpotsListAdapter.getItemCount());
                         displayMessage("Deleted " + foodSpotsListAdapter.getItem(position).getName());

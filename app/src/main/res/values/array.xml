@@ -8,6 +8,7 @@
         <item>@string/poor</item>
     </string-array>
     <string-array name="type">
+        <item>@string/restaurant</item>
         <item>@string/foodTrucks</item>
         <item>@string/streetVendors</item>
     </string-array>

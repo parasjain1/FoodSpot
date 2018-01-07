@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.starks.foodspots.apiservices.repositories.Repository;
 import com.starks.foodspots.interfaces.OnAddFoodSpotListener;
+import com.starks.foodspots.models.FoodSpot;
 
 import java.util.Map;
 
@@ -32,7 +33,7 @@ public class AddFoodSpotPresenter {
                 Log.d(TAG, response.code() + " " + response.message());
                 onAddFoodSpotListener.hideLoader();
                 if(response.code() == 201){ //created
-                    onAddFoodSpotListener.displayMessage("Foodspot added!");
+                    onAddFoodSpotListener.onFoodSpotAdded((FoodSpot) response.body());
                 }
             }
             @Override
