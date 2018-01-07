@@ -7,25 +7,61 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" >
-        <com.joooonho.SelectableRoundedImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="128dp"
+            android:id="@+id/profileImage"
             android:layout_height="128dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="260dp"
             android:layout_gravity="center"
             android:scaleType="centerCrop"
-            android:src="@drawable/logo"/>
-        <!--app:sriv_border_color="#FFFFFF"-->
-        <!--app:sriv_border_width="2dp"-->
-        <!--app:sriv_oval="true" -->
+            android:src="@drawable/avtar"/>
         <TextView
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_gravity="center_horizontal"
-            android:text="@string/name"
+            android:text="Paras Jain"
             android:textColor="@color/black"
             android:textSize="20dp"
+            android:textStyle="bold"
             />
+
+        <TextView
+            android:textAlignment="center"
+            android:id="@+id/email"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="3dp"
+            android:text="parasjian.jain@outlook.com"
+            android:textColorHint="@color/black"/>
+
+        <TextView
+            android:textAlignment="center"
+            android:id="@+id/contact"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="8750500858"
+            android:layout_marginTop="3dp"
+            android:textColorHint="@color/black" />
+
+        <TextView
+            android:textAlignment="center"
+            android:id="@+id/credit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="40 Credits"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_blue_bright"
+            android:layout_marginTop="3dp"
+            android:textColorHint="@color/black" />
+
         <Button
             android:id="@+id/editProfile"
             android:layout_width="wrap_content"
@@ -35,24 +71,6 @@
             android:text="Edit"
             android:textColor="@color/white_it"
             android:backgroundTint="@color/black"/>
-        <TextView
-            android:id="@+id/EditTextContact"
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="Contact No"
-            android:layout_marginTop="20dp"
-            android:textColorHint="@color/black" />
-        <TextView
-            android:id="@+id/email"
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
-            android:text="email"
-            android:textColorHint="@color/black"/>
 
     </LinearLayout>
 </ScrollView>

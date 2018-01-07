@@ -108,8 +108,8 @@ public class MainActivity extends BaseActivity implements
                         return HomeFragment1.newInstance(false);
                     case 1:
                         return HomeFragment1.newInstance(true);
-                    //case 2:
-                    //    return WebViewFragment.newInstance();
+                    case 2:
+                        return ProfileFragment.newInstance();
                     default:
                         return RecyclerViewFragment.newInstance();
                 }

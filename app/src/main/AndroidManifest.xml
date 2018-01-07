@@ -75,6 +75,8 @@
 
         <activity android:name=".CommentActivity"/>
 
+        <activity android:name=".MyProfileActiviy"/>
+
     </application>
 
 </manifest>
