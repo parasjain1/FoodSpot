@@ -1,9 +1,12 @@
 package com.starks.foodspots;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
@@ -22,9 +25,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.starks.foodspots.R.id.loginButton;
+
 public class FoodSpotDetailsActivity extends BaseActivity implements OnFoodSpotsReceiveListener, BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener{
 
     SliderLayout sliderLayout;
+    CardView getDirectionmap;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +56,27 @@ public class FoodSpotDetailsActivity extends BaseActivity implements OnFoodSpots
         Integer foodSpotId = getIntent().getExtras().getInt("foodSpotId");
         new FoodSpotsPresenter(this).getFoodSpot(foodSpotId+"");
         Toast.makeText(this, getIntent().getExtras().getInt("foodSpotId") + "", Toast.LENGTH_SHORT).show();
-    }
+        }
 
     void initViews(){
         sliderLayout = (SliderLayout) findViewById(R.id.slider);
+        getDirectionmap=(CardView) findViewById(R.id.getDirectionsCard);
+        getDirectionmap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri gmmIntentUri = Uri.parse("geo:37.7749,-122.4194");
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                if (mapIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(mapIntent);
+                }
+
+            }
+
+        });
+
     }
+
 
     void populateImageSlider(Map<String, String> map){
         for(String name : map.keySet()){
