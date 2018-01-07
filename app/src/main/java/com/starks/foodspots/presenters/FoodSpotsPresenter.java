@@ -7,6 +7,7 @@ import com.starks.foodspots.FoodSpotSuggestion;
 import com.starks.foodspots.apiservices.repositories.Repository;
 import com.starks.foodspots.interfaces.OnFoodSpotsReceiveListener;
 import com.starks.foodspots.models.FoodSpot;
+import com.starks.foodspots.models.SearchTag;
 import com.starks.foodspots.utils.ImageCompressor;
 
 import java.lang.reflect.Array;
@@ -38,10 +39,10 @@ public class FoodSpotsPresenter {
             public void onResponse(Call call, Response response) {
                 Log.d(TAG, response.code() + " " + response.message());
                 if(response.code() == 200){
-                    FoodSpot[] list = (FoodSpot[]) response.body();
+                    SearchTag[] list = (SearchTag[]) response.body();
                     ArrayList<FoodSpotSuggestion> suggestionsList = new ArrayList<>();
-                    for(FoodSpot foodSpot : list){
-                        suggestionsList.add(new FoodSpotSuggestion(foodSpot.getName()));
+                    for(SearchTag searchTag : list){
+                        suggestionsList.add(new FoodSpotSuggestion(searchTag.getKeyword()));
                     }
                     viewAction.onFoodSpotSearchResult(suggestionsList);
                 }

@@ -6,6 +6,7 @@ import com.starks.foodspots.apiservices.responses.InfoResponse;
 import com.starks.foodspots.apiservices.responses.LoginResponse;
 import com.starks.foodspots.models.Comment;
 import com.starks.foodspots.models.FoodSpot;
+import com.starks.foodspots.models.SearchTag;
 import com.starks.foodspots.models.User;
 import com.starks.foodspots.models.Vote;
 
@@ -96,8 +97,8 @@ public interface APIEndpoint {
     @Multipart
     Call<User> editUser(@Path("userId") String userId, @PartMap() Map<String, RequestBody> map);
 
-    @GET("foodspots/search/")
-    Call<FoodSpot[]> search(@QueryMap Map<String, String> map);
+    @GET("searchTags/")
+    Call<SearchTag[]> search(@QueryMap Map<String, String> map);
 
     @GET("users/by_token")
     Call<User> getUserByToken();

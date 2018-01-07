@@ -344,7 +344,6 @@ public class CreateFoodspotActivity  extends BaseActivity implements OnAddFoodSp
         for(String path : imagePaths) this.imageBitmaps.add(getBitmapFromImagePath(path));
         Log.d(TAG, "onAddImages called");
         imageViewsRecyclerViewAdapter.notifyDataSetChanged();
-        onSubmit();
 
     }
 
@@ -395,8 +394,16 @@ public class CreateFoodspotActivity  extends BaseActivity implements OnAddFoodSp
                 map.put("contact", editContact.getText().toString());
                 map.put("description", editDiscription.getText().toString());
                 map.put("ownerRating", editDiscription.getText().toString());
+                map.put("openTime", openEdit.getText().toString());
+                map.put("closeTime", closeEdit.getText().toString());
                 map.put("location.lat", location.getLatitude() + "");
                 map.put("location.lng", location.getLongitude() + "");
+                map.put("veg", checkVeg.isChecked() + "");
+                map.put("nonVeg", checkNonveg.isChecked() + "");
+                map.put("speciality", "");
+                map.put("ownerRating", "");
+                map.put("type", "");
+
                 if(location == null)
                     handler.postDelayed(this,500);
                 else {

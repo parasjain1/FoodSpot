@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
 import com.squareup.picasso.Picasso;
+import com.starks.foodspots.CommentActivity;
 import com.starks.foodspots.FoodSpotDetailsActivity;
 import com.starks.foodspots.MyApplication;
 import com.starks.foodspots.R;
@@ -27,7 +28,6 @@ import com.starks.foodspots.models.Vote;
 import com.starks.foodspots.presenters.GetUsersPresenter;
 import com.starks.foodspots.presenters.VotesPresenter;
 import com.starks.foodspots.utils.Constants;
-import com.starks.foodspots.viewholders.CommentActivity;
 import com.starks.foodspots.viewholders.FoodSpotViewHolder;
 
 import java.util.ArrayList;
@@ -208,6 +208,8 @@ public class FoodSpotsListAdapter extends RecyclerView.Adapter<FoodSpotViewHolde
     public FoodSpot getItem(Integer position){
         return foodSpots.get(position);
     }
+
+    public ArrayList<FoodSpot> getItemSet() { return foodSpots; }
 
     public Context getContext() { return this.context; }
 }

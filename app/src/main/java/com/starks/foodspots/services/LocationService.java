@@ -47,6 +47,7 @@ public class LocationService extends Service implements
         com.google.android.gms.location.LocationListener {
 
     private static final String TAG = LocationService.class.getSimpleName();
+    private static final Integer REQUEST_INTERVAL = 30000;
     Context appContext;
 
     // Location updates intervals in sec
@@ -120,7 +121,7 @@ public class LocationService extends Service implements
                 } catch (Exception e) {
                     Log.d(TAG, e.getMessage());
                 } finally {
-                    handler.postDelayed(this,5000);
+                    handler.postDelayed(this,REQUEST_INTERVAL);
                 }
 
             }

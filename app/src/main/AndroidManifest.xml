@@ -72,8 +72,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.starks.foodspots.BaseActivity" />
         </activity>
-        <activity android:name=".CommentActivity"
-            android:label="CommentActivity"/>
+
+        <activity android:name=".CommentActivity"/>
+
     </application>
 
 </manifest>
