@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.starks.foodspots.FoodSpotDetailsActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,14 +23,125 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_food_spot_details" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
 
-</android.support.design.widget.CoordinatorLayout>
+    <com.daimajia.slider.library.SliderLayout
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="300dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@+id/slider"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:text="Barista"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:text="by Paras"
+                android:textStyle="bold"
+                android:textColor="@color/accent_color"
+                android:layout_toRightOf="@id/name"
+                android:layout_marginTop="3.5dp"
+                android:layout_marginLeft="4dp"/>
+
+            <TextView
+                android:id="@+id/shortAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hanamkonda, Telangana "
+                android:layout_below="@+id/username"/>
+
+                <TextView
+                android:id="@+id/signature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Signature Dish:"
+                android:textColor="@color/black"
+                android:layout_below="@+id/shortAddress"/>
+
+            <TextView
+                android:id="@+id/speciality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/accent_color"
+                android:text="Vada Paos,Samosas"/>
+
+            <TextView
+                android:id="@+id/descriptionHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:textColor="@color/black"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:layout_below="@+id/speciality"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_below="@id/descriptionHeading"
+                android:layout_height="wrap_content"
+                android:text="the place is really good in terms of hygiene and taste as well, it serves many snacks and offers
+                               reasonable prices for the same."
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/fullAddressHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Full Address"
+                android:layout_marginTop="14dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_below="@+id/description"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/fullAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12, NH-11, Hanamkonda, Warangal, Telangana, 506004"
+                android:layout_below="@+id/fullAddressHeading"/>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/getDirectionsCard"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/fullAddress"
+                android:background="#FF8F00"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GET DIRECTIONS"
+                    android:layout_gravity="center"
+                    android:textColor="@color/black"
+                    android:padding="10dp"
+                    />
+            </android.support.v7.widget.CardView>
+
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>-->
+
+</ScrollView>
