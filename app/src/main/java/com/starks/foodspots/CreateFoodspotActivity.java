@@ -28,6 +28,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -58,11 +59,12 @@ import okhttp3.RequestBody;
 public class CreateFoodspotActivity  extends BaseActivity implements OnAddFoodSpotListener {
     private ViewFlipper viewFlipper;
     private float lastX;
-    EditText editName,editContact,editDiscription,editOpen,editClose;
+    EditText editName,editContact,editDescription,editOpen,editClose;
     RecyclerView recyclerView;
     Spinner spinPref;
     static EditText openEdit,closeEdit;
     Button btnNext,btnPref;
+    CheckBox checkNonveg,checkVeg;
     private static final int GET_IMAGES_REQUEST_CODE = 250;
     private static final String TAG = CreateFoodspotActivity.class.getSimpleName();
     Button selectImageButton;
@@ -109,7 +111,7 @@ public class CreateFoodspotActivity  extends BaseActivity implements OnAddFoodSp
     }
     void iniView(){
         viewFlipper = (ViewFlipper) findViewById(R.id.view_flipper);
-        editDiscription=(EditText) findViewById(R.id.EditTextDescription);
+        editDescription=(EditText) findViewById(R.id.EditTextDescription);
         editName=(EditText) findViewById(R.id.EditTextName);
         editContact=(EditText) findViewById(R.id.EditTextContact);
         editClose=(EditText) findViewById(R.id.closingTime);
@@ -117,6 +119,8 @@ public class CreateFoodspotActivity  extends BaseActivity implements OnAddFoodSp
         spinPref=(Spinner) findViewById(R.id.spinnerPreference);
         btnNext=(Button) findViewById(R.id.nextButton);
         btnPref=(Button) findViewById(R.id.previousButton);
+        checkNonveg=(CheckBox) findViewById(R.id.nonvegi);
+        checkVeg=(CheckBox) findViewById(R.id.vegi);
     }
 
     public void TruitonTimePickerDialog(View v) {
