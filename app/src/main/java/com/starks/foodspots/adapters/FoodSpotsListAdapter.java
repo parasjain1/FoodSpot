@@ -27,6 +27,7 @@ import com.starks.foodspots.models.Vote;
 import com.starks.foodspots.presenters.GetUsersPresenter;
 import com.starks.foodspots.presenters.VotesPresenter;
 import com.starks.foodspots.utils.Constants;
+import com.starks.foodspots.viewholders.CommentActivity;
 import com.starks.foodspots.viewholders.FoodSpotViewHolder;
 
 import java.util.ArrayList;
@@ -62,6 +63,16 @@ public class FoodSpotsListAdapter extends RecyclerView.Adapter<FoodSpotViewHolde
         holder.getName().setText(foodSpot.getName());
         holder.getNumLikes().setText((foodSpot.getNumLikes()  - foodSpot.getNumDislikes())+ "");
         holder.getLikeButton().setLiked(foodSpot.getUserLiked().size() != 0);
+
+        holder.getCommentButton().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, CommentActivity.class);
+                intent.putExtra("foodSpotId", foodSpot.getId());
+                context.startActivity(intent);
+            }
+        });
+
         holder.getLikeButton().setOnLikeListener(new OnLikeListener() {
             @Override
             public void liked(LikeButton likeButton) {

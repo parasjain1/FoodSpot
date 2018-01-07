@@ -97,6 +97,22 @@
                     android:id="@+id/numLikes"
                     android:layout_marginTop="4.5dp"/>
 
+                <ImageView
+                    android:layout_marginTop="9dp"
+                    android:id="@+id/commentButton"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/ic_comment_3x" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:id="@+id/numComments"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginTop="4.5dp"/>
+
             </LinearLayout>
 
 
